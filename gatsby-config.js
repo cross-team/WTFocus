@@ -36,5 +36,6 @@ module.exports = {
     'gatsby-plugin-react-axe',
     `gatsby-plugin-offline`,
     `gatsby-plugin-resolve-src`,
+    `gatsby-plugin-emotion`,
   ],
 }

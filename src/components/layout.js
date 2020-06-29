@@ -1,8 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
+import styled from '@emotion/styled'
+import { Global, css } from '@emotion/core'
 import SEO from 'components/SEO'
-import Theme from 'components/theme'
+
+var Main = styled.main`
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+`
 
 export default function Layout({ children, title }) {
   if (process.env.NODE_ENV !== 'production') {
@@ -12,9 +19,16 @@ export default function Layout({ children, title }) {
   }
 
   return (
-    <Theme>
+    <>
       <SEO title={title} />
-      <main>{children}</main>
-    </Theme>
+      <Global
+        styles={css`
+          body {
+            margin: 0;
+          }
+        `}
+      ></Global>
+      <Main>{children}</Main>
+    </>
   )
 }
