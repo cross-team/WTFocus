@@ -6,16 +6,16 @@
 
 module.exports = {
   siteMetadata: {
-    title: "Your default page title",
-    titleTemplate: "%s - Your Site Name",
-    description: "Your site description",
-    url: "Your site URL",
+    title: 'Your default page title',
+    titleTemplate: '%s - Your Site Name',
+    description: 'Your site description',
+    url: 'Your site URL',
     image: "Your site's social media card image",
-    twitterUsername: "@yourTwitterUser",
+    twitterUsername: '@yourTwitterUser',
   },
   plugins: [
     {
-      resolve: "gatsby-plugin-react-axe",
+      resolve: 'gatsby-plugin-react-axe',
       options: {
         // Integrate react-axe in production. This defaults to false.
         showInProduction: false,
@@ -32,18 +32,8 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        useMozJpeg: false,
-        stripMetadata: true,
-        defaultQuality: 75,
-      },
-    },
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-material-ui",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-react-axe",
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-react-axe',
     `gatsby-plugin-offline`,
     `gatsby-plugin-resolve-src`,
   ],
