@@ -26,7 +26,7 @@ export default () => (
       <Column>
         <Variables />
       </Column>
-      <Column css={example} />
+      <Column css={example}></Column>
     </VariableController>
   </Layout>
 )
