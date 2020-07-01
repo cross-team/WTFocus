@@ -40,6 +40,7 @@ export default function Variables() {
           label={variable.label}
           name={variable.name}
           options={variable.options}
+          key={variable.name}
         />
       ))}
     </>
