@@ -1,13 +1,20 @@
 import React from 'react'
 import { Global, css } from '@emotion/core'
-import styled from '@emotion/styled'
+import '@a11y/focus-trap'
 import LoginExample from 'components/login-example'
 import VariableContext from 'providers/variable-context'
 
 export default function Examples() {
   var { state } = React.useContext(VariableContext)
+  var [trapInactive, setTrapInactive] = React.useState(false)
   var symbol
   var symbolWeight
+
+  function handleClick() {
+    let focusTrap = document.querySelector('focus-trap')
+    focusTrap.inactive = !trapInactive
+    setTrapInactive(!trapInactive)
+  }
 
   if (state.shape !== 'outline') {
     switch (state.shape) {
@@ -39,7 +46,8 @@ export default function Examples() {
   }
 
   var animations = css`
-    a,
+    a:focus,
+    button:focus,
     input:focus {
       animation: ${state.motion} ${state.duration};
       animation-iteration-count: ${state.loop};
@@ -86,7 +94,8 @@ export default function Examples() {
   `
 
   var outlineStyles = css`
-    a,
+    a:focus,
+    button:focus,
     input:focus {
       outline: ${state.outline} ${state.size} ${state.color.hex};
     }
@@ -95,7 +104,7 @@ export default function Examples() {
   `
 
   var bulletStyles = css`
-    a:focus::${state.position} {
+    a:focus::${state.position}, button:focus::${state.position} {
       content: "${symbol}";
       color: ${state.color.hex};
       font-weight: ${symbolWeight};
@@ -107,7 +116,12 @@ export default function Examples() {
       <Global
         styles={state.shape === 'outline' ? outlineStyles : bulletStyles}
       />
-      <LoginExample />
+      <focus-trap>
+        <LoginExample />
+        <button onClick={handleClick}>
+          {trapInactive ? 'Enable Focus Trap' : 'Disable Focus Trap'}
+        </button>
+      </focus-trap>
     </>
   )
 }
