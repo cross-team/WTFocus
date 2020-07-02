@@ -6,8 +6,9 @@ export default VariableContext
 var initialState = {
   size: 'medium',
   color: '#0a0',
-  shape: 'solid',
-  position: '',
+  shape: 'outline',
+  outline: 'solid',
+  position: 'before',
 }
 
 function reducer(state, action) {
@@ -27,7 +28,7 @@ export function VariableController({ children }) {
   }
 
   var value = {
-    variables: state,
+    state,
     setVariable,
   }
 

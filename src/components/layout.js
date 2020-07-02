@@ -27,7 +27,7 @@ export default function Layout({ children, title }) {
             margin: 0;
           }
         `}
-      ></Global>
+      />
       <Main>{children}</Main>
     </>
   )

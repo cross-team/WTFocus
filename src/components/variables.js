@@ -1,48 +1,35 @@
 import React from 'react'
 import Variable from 'components/variable'
+import VariableContext from 'providers/variable-context'
 
-var variableData = [
-  {
-    label: 'Size',
-    name: 'size',
-    options: [
-      { label: 'Thin', value: 'thin' },
-      { label: 'Medium', value: 'medium' },
-      { label: 'Thick', value: 'thick' },
-    ],
-  },
-  {
-    label: 'Color',
-    name: 'color',
-    options: [
-      { label: 'Green', value: '#0a0' },
-      { label: 'Blue', value: '#04f' },
-      { label: 'Pink', value: '#f5f' },
-    ],
-  },
-  {
-    label: 'Shape',
-    name: 'shape',
-    options: [
-      { label: 'Solid', value: 'solid' },
-      { label: 'Dashed', value: 'dashed' },
-      { label: 'Dotted', value: 'dotted' },
-    ],
-  },
-]
+import data from 'data/variable-data'
 
 export default function Variables() {
+  var variableContext = React.useContext(VariableContext)
+
   return (
     <>
       <h1>Focus Variables</h1>
-      {variableData.map(variable => (
-        <Variable
-          label={variable.label}
-          name={variable.name}
-          options={variable.options}
-          key={variable.name}
-        />
-      ))}
+      {data.map(variable => {
+        if (variable.name === 'position') {
+          if (variableContext.state.shape === 'outline') {
+            return null
+          }
+        }
+        if (variable.name === 'outline') {
+          if (variableContext.state.shape !== 'outline') {
+            return null
+          }
+        }
+        return (
+          <Variable
+            label={variable.label}
+            name={variable.name}
+            options={variable.options}
+            key={variable.name}
+          />
+        )
+      })}
     </>
   )
 }

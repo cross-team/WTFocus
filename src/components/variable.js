@@ -25,7 +25,7 @@ export default function Variable({ label, name, options }) {
         name={name}
         id={name}
         onChange={handleChange}
-        value={variableContext.variables[name]}
+        value={variableContext.state[name]}
       >
         {options.map(option => (
           <Option value={option.value} key={option.label}>

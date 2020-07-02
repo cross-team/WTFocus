@@ -34,6 +34,9 @@ export default function LoginExample() {
         <InputContainer>
           <input type="submit" value="Sumbit!" />
         </InputContainer>
+        <InputContainer>
+          <a href="">Example Link</a>
+        </InputContainer>
       </fieldset>
     </form>
   )
