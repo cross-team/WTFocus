@@ -5,10 +5,21 @@ export default VariableContext
 
 var initialState = {
   size: 'medium',
-  color: '#0a0',
+  color: {
+    hex: '#0a0',
+    rgb: {
+      r: '0',
+      g: '170',
+      b: '0',
+      a: '1',
+    },
+  },
   shape: 'outline',
   outline: 'solid',
   position: 'before',
+  motion: 'none',
+  duration: '1s',
+  loop: 'infinite',
 }
 
 function reducer(state, action) {

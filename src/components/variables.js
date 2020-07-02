@@ -10,7 +10,7 @@ export default function Variables() {
 
   function handleChange(color) {
     console.log(color)
-    setVariable('color', color.hex)
+    setVariable('color', color)
   }
 
   return (
@@ -24,16 +24,28 @@ export default function Variables() {
         onChange={handleChange}
       />
       {data.map(variable => {
-        if (variable.name === 'position') {
-          if (state.shape === 'outline') {
+        if (state.shape === 'outline') {
+          if (variable.name === 'position') {
+            return null
+          }
+        } else {
+          if (variable.name === 'outline') {
+            return null
+          }
+          if (variable.name === 'motion') {
             return null
           }
         }
-        if (variable.name === 'outline') {
-          if (state.shape !== 'outline') {
+        if (state.motion === 'none') {
+          if (
+            variable.name === 'duration' ||
+            variable.name === 'loop' ||
+            variable.name === 'interval'
+          ) {
             return null
           }
         }
+
         return (
           <Variable
             label={variable.label}

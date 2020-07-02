@@ -6,7 +6,6 @@ import VariableContext from 'providers/variable-context'
 
 export default function Examples() {
   var { state } = React.useContext(VariableContext)
-
   var symbol
   var symbolWeight
 
@@ -39,25 +38,74 @@ export default function Examples() {
     }
   }
 
+  var animations = css`
+    a,
+    input:focus {
+      animation: ${state.motion} ${state.duration};
+      animation-iteration-count: ${state.loop};
+    }
+
+    @keyframes pulse {
+      0% {
+        outline-width: ${state.size};
+      }
+      50% {
+        outline-width: 12px;
+      }
+      100% {
+        outline-width: ${state.size};
+      }
+    }
+
+    @keyframes fade {
+      0% {
+        outline-color: rgba(
+          ${state.color.rgb.r},
+          ${state.color.rgb.g},
+          ${state.color.rgb.b},
+          1
+        );
+      }
+      50% {
+        outline-color: rgba(
+          ${state.color.rgb.r},
+          ${state.color.rgb.g},
+          ${state.color.rgb.b},
+          0
+        );
+      }
+      100% {
+        outline-color: rgba(
+          ${state.color.rgb.r},
+          ${state.color.rgb.g},
+          ${state.color.rgb.b},
+          1
+        );
+      }
+    }
+  `
+
+  var outlineStyles = css`
+    a,
+    input:focus {
+      outline: ${state.outline} ${state.size} ${state.color.hex};
+    }
+
+    ${state.motion !== 'none' && animations}
+  `
+
+  var bulletStyles = css`
+    a:focus::${state.position} {
+      content: "${symbol}";
+      color: ${state.color.hex};
+      font-weight: ${symbolWeight};
+    }
+  `
+
   return (
     <>
       <Global
-        styles={
-          state.shape === 'outline'
-            ? css`
-                a,
-                input:focus {
-                  outline: ${state.outline} ${state.size} ${state.color};
-                }
-              `
-            : css`
-        a:focus::${state.position} {
-          content: "${symbol}";
-          color: ${state.color};
-          font-weight: ${symbolWeight};
-        }
-      `
-        }
+        styles={state.shape === 'outline' ? outlineStyles : bulletStyles}
       />
       <LoginExample />
     </>

@@ -20,7 +20,7 @@ export default function Variable({ label, name, options }) {
 
   return (
     <>
-      <Label for={name}>{label}</Label>
+      <Label for={name}>{label}:</Label>
       <DropDown
         name={name}
         id={name}
@@ -29,7 +29,7 @@ export default function Variable({ label, name, options }) {
       >
         {options.map(option => (
           <Option value={option.value} key={option.label}>
-            {option.label}:
+            {option.label}
           </Option>
         ))}
       </DropDown>
