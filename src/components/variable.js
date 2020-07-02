@@ -29,7 +29,7 @@ export default function Variable({ label, name, options }) {
       >
         {options.map(option => (
           <Option value={option.value} key={option.label}>
-            {option.label}
+            {option.label}:
           </Option>
         ))}
       </DropDown>

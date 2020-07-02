@@ -9,15 +9,6 @@ var data = [
     ],
   },
   {
-    label: 'Color',
-    name: 'color',
-    options: [
-      { label: 'Green', value: '#0a0' },
-      { label: 'Blue', value: '#04f' },
-      { label: 'Pink', value: '#f5f' },
-    ],
-  },
-  {
     label: 'Shape',
     name: 'shape',
     options: [
