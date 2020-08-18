@@ -6,6 +6,8 @@ export default VariableContext
 var initialState = {
   thickness: '1',
   size: 'medium',
+  bgColor: '#222222',
+  inputBg: '#ffffff',
   color: {
     hex: '#0a0',
     rgb: {

@@ -2,6 +2,7 @@ import React from 'react'
 import { Global, css } from '@emotion/core'
 import '@a11y/focus-trap'
 import LoginExample from 'components/login-example'
+import Indicators from 'components/indicators'
 import VariableContext from 'providers/variable-context'
 
 export default function Examples() {
@@ -122,6 +123,7 @@ export default function Examples() {
           {trapInactive ? 'Enable Focus Trap' : 'Disable Focus Trap'}
         </button>
       </focus-trap>
+      <Indicators />
     </>
   )
 }
