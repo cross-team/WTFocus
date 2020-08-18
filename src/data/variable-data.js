@@ -1,5 +1,11 @@
 var data = [
   {
+    label: 'Border Thickness (px)',
+    name: 'thickness',
+    input: true,
+    type: 'number',
+  },
+  {
     label: 'Size',
     name: 'size',
     options: [

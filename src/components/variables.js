@@ -28,11 +28,17 @@ export default function Variables() {
           if (variable.name === 'position') {
             return null
           }
+          if (variable.name === 'size') {
+            return null
+          }
         } else {
           if (variable.name === 'outline') {
             return null
           }
           if (variable.name === 'motion') {
+            return null
+          }
+          if (variable.name === 'thickness') {
             return null
           }
         }
@@ -50,7 +56,9 @@ export default function Variables() {
           <Variable
             label={variable.label}
             name={variable.name}
-            options={variable.options}
+            options={variable.options ? variable.options : []}
+            input={variable.input ? true : false}
+            type={variable.type ? variable.type : ''}
             key={variable.name}
           />
         )

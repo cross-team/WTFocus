@@ -7,15 +7,42 @@ var DropDown = styled.select`
   margin-bottom: 1rem;
 `
 
+var Input = styled.input`
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+`
+
 var Label = styled.label``
 
 var Option = styled.option``
 
-export default function Variable({ label, name, options }) {
+export default function Variable({
+  label,
+  name,
+  options,
+  input = false,
+  type,
+}) {
   var variableContext = React.useContext(VariableContext)
 
   var handleChange = event => {
     variableContext.setVariable(name, event.target.value)
+  }
+
+  if (input) {
+    return (
+      <>
+        <Label for={name}>{label}:</Label>
+        <Input
+          name={name}
+          id={name}
+          onChange={handleChange}
+          value={variableContext.state[name]}
+          type={type}
+          min={name === 'thickness' ? '1' : 'any'}
+        />
+      </>
+    )
   }
 
   return (

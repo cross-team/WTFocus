@@ -4,6 +4,7 @@ var VariableContext = React.createContext()
 export default VariableContext
 
 var initialState = {
+  thickness: '1',
   size: 'medium',
   color: {
     hex: '#0a0',

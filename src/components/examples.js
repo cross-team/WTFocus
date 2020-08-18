@@ -55,13 +55,13 @@ export default function Examples() {
 
     @keyframes pulse {
       0% {
-        outline-width: ${state.size};
+        outline-width: ${state.thickness}px;
       }
       50% {
         outline-width: 12px;
       }
       100% {
-        outline-width: ${state.size};
+        outline-width: ${state.thickness}px;
       }
     }
 
@@ -97,7 +97,7 @@ export default function Examples() {
     a:focus,
     button:focus,
     input:focus {
-      outline: ${state.outline} ${state.size} ${state.color.hex};
+      outline: ${state.outline} ${state.thickness}px ${state.color.hex};
     }
 
     ${state.motion !== 'none' && animations}
