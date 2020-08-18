@@ -22,7 +22,8 @@ export default function Index() {
     padding: 2rem;
 
     input,
-    select {
+    select,
+    button {
       background-color: ${state.inputBg.hex};
     }
   `
