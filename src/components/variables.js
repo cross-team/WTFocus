@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from '@emotion/styled'
 import { ChromePicker } from 'react-color'
 import Variable from 'components/variable'
 import VariableContext from 'providers/variable-context'
@@ -8,40 +9,59 @@ import data from 'data/variable-data'
 export default function Variables() {
   var { state, setVariable } = React.useContext(VariableContext)
 
-  function handleChange(color) {
-    console.log(color)
-    setVariable('color', color)
+  var Colors = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  `
+
+  function handleFocusChange(color) {
+    setVariable('focusColor', color)
+  }
+
+  function handleBGChange(color) {
+    setVariable('bgColor', color)
+  }
+
+  function handleInputChange(color) {
+    setVariable('inputBg', color)
   }
 
   return (
     <>
       <h1>Focus Variables</h1>
-      <label for="color">Color:</label>
-      <ChromePicker
-        name="color"
-        id="color"
-        color={state.color}
-        onChange={handleChange}
-      />
+      <Colors>
+        <div>
+          <label for="focusColor">Focus Color:</label>
+          <ChromePicker
+            name="focusColor"
+            id="focusColor"
+            color={state.focusColor}
+            onChange={handleFocusChange}
+          />
+        </div>
+        <div>
+          <label for="bgColor">Background Color:</label>
+          <ChromePicker
+            name="bgColor"
+            id="bgColor"
+            color={state.bgColor}
+            onChange={handleBGChange}
+          />
+        </div>
+        <div>
+          <label for="inputBg">Input Color:</label>
+          <ChromePicker
+            name="inputBg"
+            id="inputBg"
+            color={state.inputBg}
+            onChange={handleInputChange}
+          />
+        </div>
+      </Colors>
+
       {data.map(variable => {
-        if (state.shape === 'outline') {
-          if (variable.name === 'position') {
-            return null
-          }
-          if (variable.name === 'size') {
-            return null
-          }
-        } else {
-          if (variable.name === 'outline') {
-            return null
-          }
-          if (variable.name === 'motion') {
-            return null
-          }
-          if (variable.name === 'thickness') {
-            return null
-          }
-        }
         if (state.motion === 'none') {
           if (
             variable.name === 'duration' ||

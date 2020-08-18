@@ -29,10 +29,6 @@ export default function Indicators() {
   // bg - Color of the adjacent background
   // Colors are passed as an array of the rgb values: [r, g, b]
   function getResults(size, outline, target, bg) {
-    console.log('size', size)
-    console.log('outline', outline)
-    console.log('target', target)
-    console.log('bg', bg)
     let results = {
       AA: false,
       AAA: false,
@@ -59,9 +55,9 @@ export default function Indicators() {
 
   var conformanceResults = getResults(
     state.thickness,
-    [state.color.rgb.r, state.color.rgb.g, state.color.rgb.b],
-    hexToRgb(state.inputBg),
-    hexToRgb(state.bgColor)
+    [state.focusColor.rgb.r, state.focusColor.rgb.g, state.focusColor.rgb.b],
+    [state.inputBg.rgb.r, state.inputBg.rgb.g, state.inputBg.rgb.b],
+    [state.bgColor.rgb.r, state.bgColor.rgb.g, state.bgColor.rgb.b]
   )
 
   return (

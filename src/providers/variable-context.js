@@ -4,11 +4,26 @@ var VariableContext = React.createContext()
 export default VariableContext
 
 var initialState = {
-  thickness: '1',
-  size: 'medium',
-  bgColor: '#222222',
-  inputBg: '#ffffff',
-  color: {
+  thickness: '2',
+  bgColor: {
+    hex: '#222',
+    rgb: {
+      r: '34',
+      g: '34',
+      b: '34',
+      a: '1',
+    },
+  },
+  inputBg: {
+    hex: '#fff',
+    rgb: {
+      r: '255',
+      g: '255',
+      b: '255',
+      a: '1',
+    },
+  },
+  focusColor: {
     hex: '#0a0',
     rgb: {
       r: '0',
@@ -17,9 +32,7 @@ var initialState = {
       a: '1',
     },
   },
-  shape: 'outline',
   outline: 'solid',
-  position: 'before',
   motion: 'none',
   duration: '1s',
   loop: 'infinite',

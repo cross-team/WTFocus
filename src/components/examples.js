@@ -7,6 +7,7 @@ import VariableContext from 'providers/variable-context'
 
 export default function Examples() {
   var { state } = React.useContext(VariableContext)
+  console.log(state.focusColor)
   var [trapInactive, setTrapInactive] = React.useState(false)
   var symbol
   var symbolWeight
@@ -15,35 +16,6 @@ export default function Examples() {
     let focusTrap = document.querySelector('focus-trap')
     focusTrap.inactive = !trapInactive
     setTrapInactive(!trapInactive)
-  }
-
-  if (state.shape !== 'outline') {
-    switch (state.shape) {
-      case 'circle':
-        symbol = '●'
-        break
-      case 'diamond':
-        symbol = '◆'
-        break
-      case 'square':
-        symbol = '■'
-        break
-      default:
-        throw new Error()
-    }
-    switch (state.size) {
-      case 'thin':
-        symbolWeight = 'lighter'
-        break
-      case 'medium':
-        symbolWeight = 'normal'
-        break
-      case 'thick':
-        symbolWeight = 'bold'
-        break
-      default:
-        throw new Error()
-    }
   }
 
   var animations = css`
@@ -69,25 +41,25 @@ export default function Examples() {
     @keyframes fade {
       0% {
         outline-color: rgba(
-          ${state.color.rgb.r},
-          ${state.color.rgb.g},
-          ${state.color.rgb.b},
+          ${state.focusColor.rgb.r},
+          ${state.focusColor.rgb.g},
+          ${state.focusColor.rgb.b},
           1
         );
       }
       50% {
         outline-color: rgba(
-          ${state.color.rgb.r},
-          ${state.color.rgb.g},
-          ${state.color.rgb.b},
+          ${state.focusColor.rgb.r},
+          ${state.focusColor.rgb.g},
+          ${state.focusColor.rgb.b},
           0
         );
       }
       100% {
         outline-color: rgba(
-          ${state.color.rgb.r},
-          ${state.color.rgb.g},
-          ${state.color.rgb.b},
+          ${state.focusColor.rgb.r},
+          ${state.focusColor.rgb.g},
+          ${state.focusColor.rgb.b},
           1
         );
       }
@@ -98,25 +70,15 @@ export default function Examples() {
     a:focus,
     button:focus,
     input:focus {
-      outline: ${state.outline} ${state.thickness}px ${state.color.hex};
+      outline: ${state.outline} ${state.thickness}px ${state.focusColor.hex};
     }
 
     ${state.motion !== 'none' && animations}
   `
 
-  var bulletStyles = css`
-    a:focus::${state.position}, button:focus::${state.position} {
-      content: "${symbol}";
-      color: ${state.color.hex};
-      font-weight: ${symbolWeight};
-    }
-  `
-
   return (
     <>
-      <Global
-        styles={state.shape === 'outline' ? outlineStyles : bulletStyles}
-      />
+      <Global styles={outlineStyles} />
       <focus-trap>
         <LoginExample />
         <button onClick={handleClick}>
