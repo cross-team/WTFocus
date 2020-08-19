@@ -58,6 +58,9 @@
     "react-test-renderer": "^16.13.1",
     "start-server-and-test": "^1.10.11"
   },
+  "resolutions": {
+    "babel-plugin-remove-graphql-queries": "2.9.12"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/cross-team/gatsby-starter-cross-team"
