@@ -4,6 +4,8 @@ var VariableContext = React.createContext()
 export default VariableContext
 
 var initialState = {
+  fontFamily: 'Roboto',
+  fontWeight: 400,
   thickness: '2',
   bgColor: {
     hex: '#222',

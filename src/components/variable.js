@@ -21,7 +21,7 @@ export default function Variable({
   name,
   options,
   input = false,
-  type,
+  type = '',
 }) {
   var variableContext = React.useContext(VariableContext)
 

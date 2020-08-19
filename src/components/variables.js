@@ -8,6 +8,21 @@ import data from 'data/variable-data'
 
 export default function Variables() {
   var { state, setVariable } = React.useContext(VariableContext)
+  var [fontFamilies, setFontFamilies] = React.useState([])
+
+  React.useEffect(() => {
+    fetch(
+      'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyCw_oxERFZFVJ45N0HglwdJR6h12F4471M'
+    )
+      .then(response => response.json())
+      .then(data => {
+        setFontFamilies(
+          data.items.map(font => {
+            return { label: font.family, value: font.family }
+          })
+        )
+      })
+  }, [])
 
   var Colors = styled.div`
     display: flex;
@@ -60,7 +75,12 @@ export default function Variables() {
           />
         </div>
       </Colors>
-
+      <Variable
+        label="Font Family"
+        name="fontFamily"
+        options={fontFamilies}
+        key="fontFamily"
+      />
       {data.map(variable => {
         if (state.motion === 'none') {
           if (
