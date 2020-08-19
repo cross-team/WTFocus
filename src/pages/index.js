@@ -12,7 +12,17 @@ export default function Index() {
   var { state } = React.useContext(VariableContext)
   var ref = React.useRef(null)
 
-  var Column = styled.div`
+  var Column1 = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #222;
+    color: #fff;
+    padding: 2rem;
+  `
+
+  var Column2 = styled.div`
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -30,13 +40,13 @@ export default function Index() {
 
   return (
     <Layout title="WTFocus">
-      <Column>
+      <Column1>
         <Variables />
-      </Column>
-      <Column css={example} ref={ref}>
+      </Column1>
+      <Column2 css={example} ref={ref}>
         <h1>Examples</h1>
         <Examples portalRef={ref} />
-      </Column>
+      </Column2>
     </Layout>
   )
 }

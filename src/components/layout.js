@@ -7,8 +7,13 @@ import SEO from 'components/SEO'
 var Main = styled.main`
   height: 100vh;
   width: 100%;
+  overflow: auto;
   display: flex;
   align-items: center;
+
+  @media only screen and (max-width: 1000px) {
+    flex-direction: column;
+  }
 `
 
 export default function Layout({ children, title }) {
