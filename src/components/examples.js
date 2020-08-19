@@ -1,6 +1,6 @@
 import React from 'react'
 import { Global, css } from '@emotion/core'
-import '@a11y/focus-trap'
+// import '@a11y/focus-trap'
 import LoginExample from 'components/login-example'
 import Indicators from 'components/indicators'
 import VariableContext from 'providers/variable-context'
