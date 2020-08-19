@@ -79,12 +79,12 @@ export default function Examples() {
   return (
     <>
       <Global styles={outlineStyles} />
-      <focus-trap>
-        <LoginExample />
-        <button onClick={handleClick}>
+      {/* <focus-trap> */}
+      <LoginExample />
+      {/* <button onClick={handleClick}>
           {trapInactive ? 'Enable Focus Trap' : 'Disable Focus Trap'}
         </button>
-      </focus-trap>
+      </focus-trap> */}
       <Indicators />
     </>
   )
