@@ -24,3 +24,11 @@ export function contrast(rgb1, rgb2) {
   var darkest = Math.min(lum1, lum2)
   return (brightest + 0.05) / (darkest + 0.05)
 }
+
+export function getFontColor(hex) {
+  let rgb = hexToRgb(hex)
+  let white = contrast(rgb, hexToRgb('#ffffff'))
+  let black = contrast(rgb, hexToRgb('#000000'))
+  if (white > black) return '#ffffff'
+  else return '#000000'
+}

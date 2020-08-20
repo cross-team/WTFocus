@@ -43,11 +43,15 @@ export default function Layout({ children, title }) {
 
     height: 100vh;
     width: 100%;
-    overflow: auto;
+    overflow-y: auto;
     display: flex;
     align-items: center;
     font-family: ${state.fontFamily};
     font-weight: ${state.fontWeight};
+
+    .hidden {
+      display: none;
+    }
 
     @media only screen and (max-width: 1000px) {
       flex-direction: column;

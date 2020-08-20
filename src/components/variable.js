@@ -3,18 +3,24 @@ import styled from '@emotion/styled'
 import VariableContext from 'providers/variable-context'
 
 var DropDown = styled.select`
-  margin-top: 0.25rem;
-  margin-bottom: 1rem;
+  width: 50%;
 `
 
 var Input = styled.input`
-  margin-top: 0.25rem;
-  margin-bottom: 1rem;
+  width: 49%;
 `
 
 var Label = styled.label``
 
 var Option = styled.option``
+
+var Root = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+`
 
 export default function Variable({
   label,
@@ -22,6 +28,7 @@ export default function Variable({
   options,
   input = false,
   type = '',
+  key,
 }) {
   var variableContext = React.useContext(VariableContext)
 
@@ -31,26 +38,29 @@ export default function Variable({
 
   if (input) {
     return (
-      <>
+      <Root>
         <Label for={name}>{label}:</Label>
         <Input
           name={name}
           id={name}
+          key={key}
           onChange={handleChange}
           value={variableContext.state[name]}
           type={type}
           min={name === 'thickness' ? '1' : 'any'}
+          max={name === 'thickness' ? '10' : 'any'}
         />
-      </>
+      </Root>
     )
   }
 
   return (
-    <>
+    <Root>
       <Label for={name}>{label}:</Label>
       <DropDown
         name={name}
         id={name}
+        key={key}
         onChange={handleChange}
         value={variableContext.state[name]}
       >
@@ -60,6 +70,6 @@ export default function Variable({
           </Option>
         ))}
       </DropDown>
-    </>
+    </Root>
   )
 }

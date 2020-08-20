@@ -1,6 +1,6 @@
 import React from 'react'
+import styled from '@emotion/styled'
 import { Global, css } from '@emotion/core'
-// import '@a11y/focus-trap'
 import LoginExample from 'components/login-example'
 import Indicators from 'components/indicators'
 import VariableContext from 'providers/variable-context'
@@ -75,10 +75,16 @@ export default function Examples() {
 
     ${state.motion !== 'none' && animations}
   `
+  var Root = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+  `
 
   return (
-    <>
+    <Root>
       <Global styles={outlineStyles} />
+      <h1>Examples</h1>
       {/* <focus-trap> */}
       <LoginExample />
       {/* <button onClick={handleClick}>
@@ -86,6 +92,6 @@ export default function Examples() {
         </button>
       </focus-trap> */}
       <Indicators />
-    </>
+    </Root>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { ChromePicker } from 'react-color'
+import ColorVariable from 'components/color-variable'
 import Variable from 'components/variable'
 import VariableContext from 'providers/variable-context'
 
@@ -24,11 +24,18 @@ export default function Variables() {
       })
   }, [])
 
+  var Root = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+  `
+
   var Colors = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    padding-bottom: 2rem;
   `
 
   function handleFocusChange(color) {
@@ -44,36 +51,12 @@ export default function Variables() {
   }
 
   return (
-    <>
+    <Root>
       <h1>Focus Variables</h1>
       <Colors>
-        <div>
-          <label for="focusColor">Focus Color:</label>
-          <ChromePicker
-            name="focusColor"
-            id="focusColor"
-            color={state.focusColor}
-            onChange={handleFocusChange}
-          />
-        </div>
-        <div>
-          <label for="bgColor">Background Color:</label>
-          <ChromePicker
-            name="bgColor"
-            id="bgColor"
-            color={state.bgColor}
-            onChange={handleBGChange}
-          />
-        </div>
-        <div>
-          <label for="inputBg">Input Color:</label>
-          <ChromePicker
-            name="inputBg"
-            id="inputBg"
-            color={state.inputBg}
-            onChange={handleInputChange}
-          />
-        </div>
+        <ColorVariable name="focusColor" label="Focus Color" />
+        <ColorVariable name="bgColor" label="Background Color" />
+        <ColorVariable name="inputBg" label="Input Color" />
       </Colors>
       <Variable
         label="Font Family"
@@ -103,6 +86,6 @@ export default function Variables() {
           />
         )
       })}
-    </>
+    </Root>
   )
 }

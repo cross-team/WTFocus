@@ -15,7 +15,7 @@ var data = [
   //   ],
   // },
   {
-    label: 'Border Thickness (px)',
+    label: 'Outline Width (px)',
     name: 'thickness',
     input: true,
     type: 'number',

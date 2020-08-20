@@ -7,8 +7,9 @@ var initialState = {
   fontFamily: 'Roboto',
   fontWeight: 400,
   thickness: '2',
+  bgColorHidden: true,
   bgColor: {
-    hex: '#222',
+    hex: '#222222',
     rgb: {
       r: '34',
       g: '34',
@@ -16,8 +17,9 @@ var initialState = {
       a: '1',
     },
   },
+  inputBgHidden: true,
   inputBg: {
-    hex: '#fff',
+    hex: '#ffffff',
     rgb: {
       r: '255',
       g: '255',
@@ -25,8 +27,9 @@ var initialState = {
       a: '1',
     },
   },
+  focusColorHidden: true,
   focusColor: {
-    hex: '#0a0',
+    hex: '#00aa00',
     rgb: {
       r: '0',
       g: '170',

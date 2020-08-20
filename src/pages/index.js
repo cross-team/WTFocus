@@ -13,23 +13,17 @@ export default function Index() {
   var ref = React.useRef(null)
 
   var Column1 = styled.div`
-    display: flex;
-    flex-direction: column;
     height: 100%;
     width: 100%;
     background-color: #222;
     color: #fff;
-    padding: 2rem;
   `
 
   var Column2 = styled.div`
-    display: flex;
-    flex-direction: column;
     height: 100%;
     width: 100%;
     background-color: ${state.bgColor.hex};
     color: #fff;
-    padding: 2rem;
 
     input,
     select,
@@ -44,7 +38,6 @@ export default function Index() {
         <Variables />
       </Column1>
       <Column2 css={example} ref={ref}>
-        <h1>Examples</h1>
         <Examples portalRef={ref} />
       </Column2>
     </Layout>
