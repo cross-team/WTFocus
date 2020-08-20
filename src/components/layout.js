@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import styled from '@emotion/styled'
 import { Global, css } from '@emotion/core'
-import SEO from 'components/SEO'
+import { Helmet } from 'react-helmet'
 import VariableContext from 'providers/variable-context'
 
 export default function Layout({ children, title }) {
@@ -60,7 +60,38 @@ export default function Layout({ children, title }) {
 
   return (
     <>
-      <SEO title={title} />
+      <Helmet
+        title="WTFocus"
+        meta={[
+          {
+            name: 'description',
+            content: 'An accessibility focus outline demo',
+          },
+          {
+            property: `og:title`,
+            content: 'WTFocus',
+          },
+          {
+            property: `og:description`,
+            content: 'An accessibility focus outline demo',
+          },
+          {
+            property: `og:type`,
+            content: `website`,
+          },
+          {
+            name: `twitter:title`,
+            content: `WTFocus`,
+          },
+          {
+            name: `twitter:description`,
+            content: 'An accessibility focus outline demo',
+          },
+        ]}
+      >
+        <html lang="en" />
+        <meta charSet="utf-8" />
+      </Helmet>
       <Global
         styles={css`
           body {

@@ -91,11 +91,6 @@ const SEO = ({ title, description, image, pathname, article }) => {
             >
               <html lang="en" />
               <meta charSet="utf-8" />
-              <link
-                href="https://fonts.googleapis.com/css?family=Miriam+Libre&display=swap"
-                rel="stylesheet"
-              ></link>
-
               {(article ? true : null) && (
                 <meta property="og:type" content="article" />
               )}
