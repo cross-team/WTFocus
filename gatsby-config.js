@@ -5,6 +5,7 @@
  */
 
 module.exports = {
+  pathPrefix: '/WTFocus',
   siteMetadata: {
     title: 'Your default page title',
     titleTemplate: '%s - Your Site Name',
