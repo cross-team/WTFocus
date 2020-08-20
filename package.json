@@ -4,6 +4,7 @@
   "description": "",
   "version": "0.1.1",
   "license": "MIT",
+  "homepage": "./",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
