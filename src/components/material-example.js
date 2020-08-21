@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles, withStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
@@ -19,15 +19,27 @@ export default function MaterialExample() {
       margin: '0.5rem 0',
     },
     label: {
-      color: getFontColor(state['bgColor'].hex),
+      color: getFontColor(state.bgColor.hex),
     },
   })
-  const classes = useStyles()
+  var classes = useStyles()
+
+  var CustomTextField = withStyles({
+    root: {
+      '& .MuiOutlinedInput-root:focus-within': {
+        border: `${state.thickness}px ${state.outline} ${state.focusColor.hex}`,
+      },
+    },
+  })(TextField)
 
   return (
     <form className={classes.root}>
-      <TextField className={classes.input} variant="outlined" label="Email" />
-      <TextField
+      <CustomTextField
+        className={classes.input}
+        variant="outlined"
+        label="Email"
+      />
+      <CustomTextField
         className={classes.input}
         variant="outlined"
         label="Password"
@@ -38,7 +50,7 @@ export default function MaterialExample() {
         label="Remember Me"
       />
       <Button className={classes.input} variant="contained">
-        Default
+        Submit
       </Button>
     </form>
   )
