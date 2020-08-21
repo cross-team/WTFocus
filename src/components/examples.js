@@ -1,12 +1,16 @@
 import React from 'react'
+// import '@a11y/focus-trap'
 import styled from '@emotion/styled'
 import { Global, css } from '@emotion/core'
 import LoginExample from 'components/login-example'
+import MaterialExample from 'components/material-example'
 import Indicators from 'components/indicators'
 import VariableContext from 'providers/variable-context'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import { getFontColor } from 'utils/functions'
 
 export default function Examples() {
-  var { state } = React.useContext(VariableContext)
+  var { state, setVariable } = React.useContext(VariableContext)
   console.log(state.focusColor)
   var [trapInactive, setTrapInactive] = React.useState(false)
   var symbol
@@ -74,6 +78,14 @@ export default function Examples() {
     }
 
     ${state.motion !== 'none' && animations}
+
+    @media (prefers-reduced-motion) {
+      a:focus,
+      button:focus,
+      input:focus {
+        animation: none;
+      }
+    }
   `
   var Root = styled.div`
     display: flex;
@@ -81,12 +93,73 @@ export default function Examples() {
     padding: 0 2rem;
   `
 
+  var Themes = styled.div`
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+  `
+
+  var ThemeButton = styled.button`
+    width: 40%;
+    padding: 0.5rem 0;
+  `
+
+  function handleTheme(theme) {
+    setVariable('theme', theme)
+  }
+
+  const lightTheme = createMuiTheme({
+    palette: {
+      type: 'light',
+      primary: {
+        main: `${state.focusColor.hex}`,
+      },
+    },
+  })
+
+  const darkTheme = createMuiTheme({
+    palette: {
+      type: 'dark',
+      primary: {
+        main: `${state.focusColor.hex}`,
+      },
+    },
+  })
+
   return (
     <Root>
       <Global styles={outlineStyles} />
       <h1>Examples</h1>
+      <Themes>
+        {state.theme !== 'html' && (
+          <ThemeButton onClick={() => handleTheme('html')}>
+            Raw HTML
+          </ThemeButton>
+        )}
+        {state.theme !== 'material' && (
+          <ThemeButton onClick={() => handleTheme('material')}>
+            Material UI
+          </ThemeButton>
+        )}
+        {state.theme !== 'bootstrap' && (
+          <ThemeButton onClick={() => handleTheme('bootstrap')}>
+            Bootstrap
+          </ThemeButton>
+        )}
+      </Themes>
       {/* <focus-trap> */}
-      <LoginExample />
+      {state.theme === 'html' && <LoginExample />}
+      {state.theme === 'material' && (
+        <ThemeProvider
+          theme={
+            getFontColor(state['bgColor'].hex) === '#ffffff'
+              ? darkTheme
+              : lightTheme
+          }
+        >
+          <MaterialExample />
+        </ThemeProvider>
+      )}
       {/* <button onClick={handleClick}>
           {trapInactive ? 'Enable Focus Trap' : 'Disable Focus Trap'}
         </button>

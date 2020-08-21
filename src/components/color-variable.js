@@ -6,47 +6,60 @@ import { getFontColor } from 'utils/functions'
 
 export default function ColorVariable({ name, label }) {
   var { state, setVariable } = React.useContext(VariableContext)
+  var pickerRef = React.useRef(null)
+
+  function handleClickOutside() {
+    console.log(`closing ${name} picker`)
+    setVariable(`${name}Hidden`, true)
+  }
 
   function handleChange(color) {
     setVariable(`${name}`, color)
   }
 
   function handleClick() {
-    console.log('clicked')
     setVariable(`${name}Hidden`, !state[`${name}Hidden`])
   }
 
   var Root = styled.div`
-    width: 30%;
+    padding: 1rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     .picker {
       position: absolute;
     }
   `
 
   var ColorButton = styled.button`
-    width: 100%;
+    width: 50%;
     background-color: ${state[name].hex};
-    border: 2px solid white;
+    border: 4px solid white;
     border-radius: 4px;
-    display: flex;
-    justify-content: center;
-    padding: 0.4rem 0;
-    font-family: ${state.fontFamily};
-    color: ${getFontColor(state[name].hex)};
+    padding: 0.75rem;
   `
 
   return (
     <Root>
-      <ColorButton onClick={handleClick}>
-        <label for={name}>{label}</label>
-      </ColorButton>
-      <ChromePicker
-        className={`picker${state[`${name}Hidden`] ? ' hidden' : ''}`}
-        name={name}
+      <label for={name}>{label}:</label>
+      <ColorButton
         id={name}
-        color={state[name]}
-        onChange={handleChange}
-      />
+        aria-label={`${label}: ${state[name].hex}`}
+        onClick={handleClick}
+      >
+        <span
+          className={state[`${name}Hidden`] ? 'hidden' : ''}
+          ref={pickerRef}
+        >
+          <ChromePicker
+            className={`picker`}
+            name={name}
+            id={`${name}Picker`}
+            color={state[name]}
+            onChange={handleChange}
+          />
+        </span>
+      </ColorButton>
     </Root>
   )
 }

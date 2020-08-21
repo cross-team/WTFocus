@@ -25,13 +25,6 @@ export default function Index() {
     width: 100%;
     background-color: ${state.bgColor.hex};
     color: ${getFontColor(state['bgColor'].hex)};
-
-    input,
-    select,
-    button {
-      background-color: ${state.inputBg.hex};
-      color: ${getFontColor(state['inputBg'].hex)};
-    }
   `
 
   return (
