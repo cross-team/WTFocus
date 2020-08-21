@@ -70,7 +70,12 @@ export default function Indicators() {
         <Indicator result={conformanceResults.AAA} />
         <Label>Level AAA Compliance</Label>
       </Container>
-      <p>According to WCAG 2.2 W3C Working Draft 11 August 2020</p>
+      <p>
+        According to
+        <a href="https://www.w3.org/TR/WCAG22/">
+          WCAG 2.2 W3C Working Draft 11 August 2020
+        </a>
+      </p>
     </Root>
   )
 }
