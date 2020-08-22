@@ -45,6 +45,7 @@ export default function Variables() {
       <Colors>
         <ColorVariable name="focusColor" label="Focus Color" />
         <ColorVariable name="bgColor" label="Background Color" />
+        <ColorVariable name="inputBg" label="Input Color" />
       </Colors>
       <Variable
         label="Font Family"

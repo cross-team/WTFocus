@@ -119,8 +119,7 @@ export default function Examples() {
   })
 
   return (
-    <Root>
-      <Global styles={outlineStyles} />
+    <Root css={outlineStyles}>
       <h1>Examples</h1>
       {/* <focus-trap> */}
       {state.theme === 'html' && <LoginExample />}

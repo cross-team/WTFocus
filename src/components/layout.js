@@ -40,7 +40,6 @@ export default function Layout({ children, title }) {
 
   var Main = styled.main`
     ${fontFiles}
-
     height: 100vh;
     width: 100%;
     overflow-y: auto;

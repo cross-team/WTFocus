@@ -1,20 +1,15 @@
 import React from 'react'
-import { Global, css } from '@emotion/core'
+import { css } from '@emotion/core'
 import { Form, Button, FormGroup, Label, Input } from 'reactstrap'
 import VariableContext from 'providers/variable-context'
 import { getFontColor } from 'utils/functions'
+var bootstrap = require('bootstrap/dist/css/bootstrap.min.css').toString()
 
 export default function BootstrapExample() {
   var { state } = React.useContext(VariableContext)
-  var bootstrap = require('bootstrap/dist/css/bootstrap.min.css').toString()
 
   return (
     <span>
-      <Global
-        styles={css`
-          ${bootstrap}
-        `}
-      />
       <Form>
         <FormGroup>
           <Label for="emailBoot">Email</Label>
@@ -51,9 +46,12 @@ export default function BootstrapExample() {
         </FormGroup>
         <Button
           css={css`
+            margin-top: 1rem;
             &:focus {
               box-shadow: 0 0 0 ${state.thickness}px ${state.focusColor.hex} !important;
               border: none !important;
+              background-color: ${state.inputBg.hex};
+              color: ${getFontColor(state.inputBg.hex)};
             }
           `}
         >

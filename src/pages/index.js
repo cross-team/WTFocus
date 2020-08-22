@@ -13,6 +13,7 @@ export default function Index() {
   var ref = React.useRef(null)
 
   var Column1 = styled.div`
+    padding-top: 1rem;
     height: 100%;
     width: 100%;
     background-color: #222;
@@ -20,10 +21,18 @@ export default function Index() {
   `
 
   var Column2 = styled.div`
+    padding-top: 1rem;
     height: 100%;
     width: 100%;
     background-color: ${state.bgColor.hex};
-    color: ${getFontColor(state['bgColor'].hex)};
+    color: ${getFontColor(state.bgColor.hex)};
+
+    input,
+    select,
+    button {
+      background-color: ${state.inputBg.hex};
+      color: ${getFontColor(state.inputBg.hex)};
+    }
   `
 
   return (

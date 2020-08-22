@@ -22,7 +22,7 @@ export default function ColorVariable({ name, label }) {
   }
 
   var Root = styled.div`
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     width: 100%;
     display: flex;
     justify-content: space-between;

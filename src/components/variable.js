@@ -7,7 +7,7 @@ var DropDown = styled.select`
 `
 
 var Input = styled.input`
-  width: 49%;
+  width: 50%;
 `
 
 var Label = styled.label``
@@ -19,7 +19,7 @@ var Root = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 `
 
 export default function Variable({
