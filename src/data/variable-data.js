@@ -15,6 +15,15 @@ var data = [
   //   ],
   // },
   {
+    label: 'Example Theme',
+    name: 'theme',
+    options: [
+      { label: 'Vanilla HTML', value: 'html' },
+      { label: 'Material UI', value: 'material' },
+      { label: 'Bootstrap', value: 'bootstrap' },
+    ],
+  },
+  {
     label: 'Outline Width (px)',
     name: 'thickness',
     input: true,

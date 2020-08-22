@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import { Global, css } from '@emotion/core'
 import LoginExample from 'components/login-example'
 import MaterialExample from 'components/material-example'
+import BootstrapExample from 'components/bootstrap-example'
 import Indicators from 'components/indicators'
 import VariableContext from 'providers/variable-context'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
@@ -93,22 +94,10 @@ export default function Examples() {
     padding: 0 2rem;
   `
 
-  var Themes = styled.div`
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 2rem;
-  `
-
-  var ThemeButton = styled.button`
-    width: 40%;
-    padding: 0.5rem 0;
-  `
-
-  function handleTheme(theme) {
-    setVariable('theme', theme)
-  }
-
   const lightTheme = createMuiTheme({
+    typography: {
+      fontFamily: state.fontFamily,
+    },
     palette: {
       type: 'light',
       primary: {
@@ -118,6 +107,9 @@ export default function Examples() {
   })
 
   const darkTheme = createMuiTheme({
+    typography: {
+      fontFamily: state.fontFamily,
+    },
     palette: {
       type: 'dark',
       primary: {
@@ -130,23 +122,6 @@ export default function Examples() {
     <Root>
       <Global styles={outlineStyles} />
       <h1>Examples</h1>
-      <Themes>
-        {state.theme !== 'html' && (
-          <ThemeButton onClick={() => handleTheme('html')}>
-            Raw HTML
-          </ThemeButton>
-        )}
-        {state.theme !== 'material' && (
-          <ThemeButton onClick={() => handleTheme('material')}>
-            Material UI
-          </ThemeButton>
-        )}
-        {state.theme !== 'bootstrap' && (
-          <ThemeButton onClick={() => handleTheme('bootstrap')}>
-            Bootstrap
-          </ThemeButton>
-        )}
-      </Themes>
       {/* <focus-trap> */}
       {state.theme === 'html' && <LoginExample />}
       {state.theme === 'material' && (
@@ -160,6 +135,7 @@ export default function Examples() {
           <MaterialExample />
         </ThemeProvider>
       )}
+      {state.theme === 'bootstrap' && <BootstrapExample />}
       {/* <button onClick={handleClick}>
           {trapInactive ? 'Enable Focus Trap' : 'Disable Focus Trap'}
         </button>

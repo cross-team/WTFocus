@@ -6,7 +6,6 @@ import Examples from 'components/examples'
 import Variables from 'components/variables'
 import VariableContext from 'providers/variable-context'
 import { getFontColor } from 'utils/functions'
-
 var example = css``
 
 export default function Index() {

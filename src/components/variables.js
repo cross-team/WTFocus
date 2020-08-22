@@ -39,25 +39,12 @@ export default function Variables() {
     flex-wrap: wrap;
   `
 
-  function handleFocusChange(color) {
-    setVariable('focusColor', color)
-  }
-
-  function handleBGChange(color) {
-    setVariable('bgColor', color)
-  }
-
-  function handleInputChange(color) {
-    setVariable('inputBg', color)
-  }
-
   return (
     <Root>
       <h1>Focus Variables</h1>
       <Colors>
         <ColorVariable name="focusColor" label="Focus Color" />
         <ColorVariable name="bgColor" label="Background Color" />
-        <ColorVariable name="inputBg" label="Input Color" />
       </Colors>
       <Variable
         label="Font Family"
