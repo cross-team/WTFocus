@@ -14,23 +14,23 @@ var data = [
   //     { label: '900', value: 900 },
   //   ],
   // },
+  // {
+  //   label: 'Example Theme',
+  //   name: 'theme',
+  //   options: [
+  //     { label: 'Vanilla HTML', value: 'html' },
+  //     { label: 'Material UI', value: 'material' },
+  //     { label: 'Bootstrap', value: 'bootstrap' },
+  //   ],
+  // },
   {
-    label: 'Example Theme',
-    name: 'theme',
-    options: [
-      { label: 'Vanilla HTML', value: 'html' },
-      { label: 'Material UI', value: 'material' },
-      { label: 'Bootstrap', value: 'bootstrap' },
-    ],
-  },
-  {
-    label: 'Outline Width (px)',
-    name: 'thickness',
+    label: 'Width',
+    name: 'width',
     input: true,
     type: 'number',
   },
   {
-    label: 'Outline Style',
+    label: 'Style',
     name: 'outline',
     options: [
       { label: 'Solid', value: 'solid' },

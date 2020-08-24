@@ -16,22 +16,26 @@ export default function Index() {
     padding-top: 1rem;
     height: 100%;
     width: 100%;
-    background-color: #222;
+    background-color: #343a40;
     color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
   `
 
   var Column2 = styled.div`
     padding-top: 1rem;
     height: 100%;
     width: 100%;
-    background-color: ${state.bgColor.hex};
-    color: ${getFontColor(state.bgColor.hex)};
+    background-color: ${state.bgColor};
+    color: ${getFontColor(state.bgColor)};
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 
     input,
     select,
     button {
-      background-color: ${state.inputBg.hex};
-      color: ${getFontColor(state.inputBg.hex)};
     }
   `
 

@@ -3,7 +3,6 @@ import { css } from '@emotion/core'
 import { Form, Button, FormGroup, Label, Input } from 'reactstrap'
 import VariableContext from 'providers/variable-context'
 import { getFontColor } from 'utils/functions'
-var bootstrap = require('bootstrap/dist/css/bootstrap.min.css').toString()
 
 export default function BootstrapExample() {
   var { state } = React.useContext(VariableContext)
@@ -19,7 +18,7 @@ export default function BootstrapExample() {
             id="emailBoot"
             css={css`
               &:focus {
-                box-shadow: 0 0 0 ${state.thickness}px ${state.focusColor.hex} !important;
+                box-shadow: 0 0 0 ${state.width}px ${state.focusColor} !important;
                 border: none !important;
               }
             `}
@@ -33,7 +32,7 @@ export default function BootstrapExample() {
             id="passwordBoot"
             css={css`
               &:focus {
-                box-shadow: 0 0 0 ${state.thickness}px ${state.focusColor.hex} !important;
+                box-shadow: 0 0 0 ${state.width}px ${state.focusColor} !important;
                 border: none !important;
               }
             `}
@@ -48,10 +47,10 @@ export default function BootstrapExample() {
           css={css`
             margin-top: 1rem;
             &:focus {
-              box-shadow: 0 0 0 ${state.thickness}px ${state.focusColor.hex} !important;
+              box-shadow: 0 0 0 ${state.width}px ${state.focusColor} !important;
               border: none !important;
-              background-color: ${state.inputBg.hex};
-              color: ${getFontColor(state.inputBg.hex)};
+              background-color: ${state.inputBg};
+              color: ${getFontColor(state.inputBg)};
             }
           `}
         >

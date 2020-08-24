@@ -20,7 +20,7 @@ export default function MaterialExample() {
       margin: '1rem 0',
     },
     label: {
-      color: getFontColor(state.bgColor.hex),
+      color: getFontColor(state.bgColor),
     },
   })
   var classes = useStyles()
@@ -28,16 +28,16 @@ export default function MaterialExample() {
   var CustomTextField = withStyles({
     root: {
       '& .MuiOutlinedInput-root:focus-within': {
-        border: `${state.thickness}px ${state.outline} ${state.focusColor.hex}`,
+        border: `${state.width}px ${state.outline} ${state.focusColor}`,
       },
       '& .MuiOutlinedInput-input': {
         borderRadius: '4px',
       },
       '& .MuiInputLabel-root': {
-        color: getFontColor(state.inputBg.hex),
+        color: getFontColor(state.inputBg),
       },
       '& .MuiInputLabel-shrink': {
-        color: state.focusColor.hex,
+        color: state.focusColor,
       },
     },
   })(TextField)
@@ -45,7 +45,7 @@ export default function MaterialExample() {
   var CustomCheckbox = withStyles({
     root: {
       '& .MuiIconButton-label:focus-within': {
-        border: `${state.thickness}px ${state.outline} ${state.focusColor.hex}`,
+        border: `${state.width}px ${state.outline} ${state.focusColor}`,
       },
     },
   })(Checkbox)
@@ -59,7 +59,7 @@ export default function MaterialExample() {
         css={css`
           &:focus-within {
             label {
-              top: ${-5 - state.thickness}px;
+              top: ${-5 - state.width}px;
             }
           }
         `}
@@ -71,7 +71,7 @@ export default function MaterialExample() {
         css={css`
           &:focus-within {
             label {
-              top: ${-5 - state.thickness}px;
+              top: ${-5 - state.width}px;
             }
           }
         `}

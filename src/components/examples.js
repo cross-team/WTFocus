@@ -8,7 +8,7 @@ import BootstrapExample from 'components/bootstrap-example'
 import Indicators from 'components/indicators'
 import VariableContext from 'providers/variable-context'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
-import { getFontColor } from 'utils/functions'
+import { hexToRgb } from 'utils/functions'
 
 export default function Examples() {
   var { state, setVariable } = React.useContext(VariableContext)
@@ -26,6 +26,7 @@ export default function Examples() {
   var animations = css`
     a:focus,
     button:focus,
+    select:focus,
     input:focus {
       animation: ${state.motion} ${state.duration};
       animation-iteration-count: ${state.loop};
@@ -33,38 +34,38 @@ export default function Examples() {
 
     @keyframes pulse {
       0% {
-        outline-width: ${state.thickness}px;
+        outline-width: ${state.width}px;
       }
       50% {
         outline-width: 12px;
       }
       100% {
-        outline-width: ${state.thickness}px;
+        outline-width: ${state.width}px;
       }
     }
 
     @keyframes fade {
       0% {
         outline-color: rgba(
-          ${state.focusColor.rgb.r},
-          ${state.focusColor.rgb.g},
-          ${state.focusColor.rgb.b},
+          ${hexToRgb(state.focusColor)[0]},
+          ${hexToRgb(state.focusColor)[1]},
+          ${hexToRgb(state.focusColor)[2]},
           1
         );
       }
       50% {
         outline-color: rgba(
-          ${state.focusColor.rgb.r},
-          ${state.focusColor.rgb.g},
-          ${state.focusColor.rgb.b},
+          ${hexToRgb(state.focusColor)[0]},
+          ${hexToRgb(state.focusColor)[1]},
+          ${hexToRgb(state.focusColor)[2]},
           0
         );
       }
       100% {
         outline-color: rgba(
-          ${state.focusColor.rgb.r},
-          ${state.focusColor.rgb.g},
-          ${state.focusColor.rgb.b},
+          ${hexToRgb(state.focusColor)[0]},
+          ${hexToRgb(state.focusColor)[1]},
+          ${hexToRgb(state.focusColor)[2]},
           1
         );
       }
@@ -74,8 +75,10 @@ export default function Examples() {
   var outlineStyles = css`
     a:focus,
     button:focus,
+    select:focus,
     input:focus {
-      outline: ${state.outline} ${state.thickness}px ${state.focusColor.hex};
+      outline: ${state.outline} ${state.width}px ${state.focusColor};
+      outline-offset: ${state.offset}px;
     }
 
     ${state.motion !== 'none' && animations}
@@ -83,62 +86,123 @@ export default function Examples() {
     @media (prefers-reduced-motion) {
       a:focus,
       button:focus,
+      select: focus,
       input:focus {
         animation: none;
       }
     }
   `
   var Root = styled.div`
+    width: 60%;
+    max-width: 640px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     padding: 0 2rem;
+    font-size: 1.25rem;
   `
 
-  const lightTheme = createMuiTheme({
-    typography: {
-      fontFamily: state.fontFamily,
-    },
-    palette: {
-      type: 'light',
-      primary: {
-        main: `${state.focusColor.hex}`,
-      },
-    },
-  })
+  var Heading = styled.h2`
+    font-size: 3rem;
+  `
 
-  const darkTheme = createMuiTheme({
-    typography: {
-      fontFamily: state.fontFamily,
-    },
-    palette: {
-      type: 'dark',
-      primary: {
-        main: `${state.focusColor.hex}`,
-      },
-    },
-  })
+  var InputContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+  `
+
+  var Input = styled.input`
+    width: 100%;
+    border: 2px solid #767676;
+    border-radius: 4px;
+    margin-top: ${+state.width + +state.offset + 4}px;
+  `
+
+  var DropDown = styled.select`
+    width: 102%;
+    border: 2px solid #767676;
+    border-radius: 4px;
+    margin-top: ${+state.width + +state.offset + 4}px;
+  `
+
+  var Checkbox = styled.input`
+    margin-right: 1rem;
+  `
+
+  var CheckboxContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0.5rem;
+  `
+
+  var LinkContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  `
+
+  var Link = styled.a`
+    color: #001aff;
+    text-decoration: underline;
+  `
+
+  var Button = styled.button`
+    align-self: flex-end;
+    background-color: #207df8;
+    color: white;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 0px;
+  `
 
   return (
     <Root css={outlineStyles}>
-      <h1>Examples</h1>
-      {/* <focus-trap> */}
-      {state.theme === 'html' && <LoginExample />}
-      {state.theme === 'material' && (
-        <ThemeProvider
-          theme={
-            getFontColor(state['bgColor'].hex) === '#ffffff'
-              ? darkTheme
-              : lightTheme
-          }
-        >
-          <MaterialExample />
-        </ThemeProvider>
-      )}
-      {state.theme === 'bootstrap' && <BootstrapExample />}
-      {/* <button onClick={handleClick}>
-          {trapInactive ? 'Enable Focus Trap' : 'Disable Focus Trap'}
-        </button>
-      </focus-trap> */}
+      <Heading>Preview</Heading>
+      <InputContainer>
+        <label for="input-ex">Input</label>
+        <Input
+          name="input-ex"
+          id="input-ex"
+          aria-label="input element example"
+        />
+      </InputContainer>
+      <InputContainer>
+        <label for="select-ex">Select</label>
+        <DropDown
+          name="select-ex"
+          id="select-ex"
+          aria-label="select element example"
+        />
+      </InputContainer>
+      <CheckboxContainer>
+        <Checkbox
+          type="checkbox"
+          name="checkbox-ex"
+          id="checkbox-ex"
+          aria-label="checkbox element example"
+        />
+        <label for="checkbox-ex">Checkbox</label>
+      </CheckboxContainer>
+      <CheckboxContainer>
+        <Checkbox
+          type="radio"
+          name="radio-ex"
+          id="radio-ex"
+          aria-label="radio element example"
+        />
+        <label for="radio-ex">Radio</label>
+      </CheckboxContainer>
+      <LinkContainer>
+        <Link href="#">Link</Link>
+        <Button>Button</Button>
+      </LinkContainer>
       <Indicators />
     </Root>
   )

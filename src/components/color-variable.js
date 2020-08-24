@@ -33,7 +33,7 @@ export default function ColorVariable({ name, label }) {
 
   var ColorButton = styled.button`
     width: 50%;
-    background-color: ${state[name].hex};
+    background-color: ${state[name]};
     border: 4px solid white;
     border-radius: 4px;
     padding: 0.75rem;
@@ -44,7 +44,7 @@ export default function ColorVariable({ name, label }) {
       <label for={name}>{label}:</label>
       <ColorButton
         id={name}
-        aria-label={`${label}: ${state[name].hex}`}
+        aria-label={`${label}: ${state[name]}`}
         onClick={handleClick}
       >
         <span

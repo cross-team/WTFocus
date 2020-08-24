@@ -32,7 +32,7 @@ export default function LoginExample() {
           <label for="rememberMe">Remember me</label>
         </InputContainer>
         <InputContainer>
-          <input type="submit" value="Sumbit!" />
+          <input type="submit" />
         </InputContainer>
       </fieldset>
     </form>

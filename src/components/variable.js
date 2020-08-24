@@ -3,11 +3,21 @@ import styled from '@emotion/styled'
 import VariableContext from 'providers/variable-context'
 
 var DropDown = styled.select`
-  width: 50%;
+  width: 104%;
+  background-color: #343a40;
+  color: white;
+  border: 2px solid white;
+  border-radius: 4px;
+  margin-top: 0.5rem;
 `
 
 var Input = styled.input`
-  width: 50%;
+  width: 100%;
+  background-color: #343a40;
+  color: white;
+  border: 2px solid white;
+  border-radius: 4px;
+  margin-top: 0.5rem;
 `
 
 var Label = styled.label``
@@ -17,8 +27,9 @@ var Option = styled.option``
 var VariableContainer = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 0.5rem 0;
 `
 
@@ -35,9 +46,10 @@ export default function Variable({
   key,
 }) {
   var variableContext = React.useContext(VariableContext)
+  var [value, setValue] = React.useState(variableContext.state[name])
 
   var handleChange = event => {
-    variableContext.setVariable(name, event.target.value)
+    setValue(event.target.value)
   }
 
   if (input) {
@@ -48,11 +60,11 @@ export default function Variable({
           name={name}
           id={name}
           key={key}
-          onChange={handleChange}
-          value={variableContext.state[name]}
           type={type}
-          min={name === 'thickness' ? '1' : 'any'}
-          max={name === 'thickness' ? '10' : 'any'}
+          min={type === 'number' ? '1' : 'any'}
+          max={type === 'number' ? '10' : 'any'}
+          value={value}
+          onChange={handleChange}
         />
       </VariableContainer>
     )
@@ -66,9 +78,8 @@ export default function Variable({
           name={name}
           id={name}
           key={key}
+          value={value}
           onChange={handleChange}
-          value={variableContext.state[name]}
-          aria-describedBy={name === 'motion' ? 'reducedMotion' : ''}
         >
           {options.map(option => (
             <Option value={option.value} key={option.label}>
@@ -77,7 +88,7 @@ export default function Variable({
           ))}
         </DropDown>
       </VariableContainer>
-      {name === 'motion' && (
+      {/* {name === 'motion' && (
         <HelperText id="reducedMotion">
           If you have Prefers Reduced Motion enabled on your OS, all animations
           will be disabled. To learn more about Prefers Reduced Motion, check
@@ -90,7 +101,7 @@ export default function Variable({
           </a>{' '}
           by Eric Bailey
         </HelperText>
-      )}
+      )} */}
     </>
   )
 }

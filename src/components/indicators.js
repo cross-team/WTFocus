@@ -23,12 +23,13 @@ var Label = styled.p`
 export default function Indicators() {
   var { state } = React.useContext(VariableContext)
 
-  // size - Thickness of the outline in pixels
+  // size - Width of the outline in pixels
   // outline - Color of the focus indicator
   // target - Color of the target
   // bg - Color of the adjacent background
   // Colors are passed as an array of the rgb values: [r, g, b]
   function getResults(size, outline, target, bg) {
+    console.log(outline, target, bg)
     let results = {
       AA: false,
       AAA: false,
@@ -54,10 +55,10 @@ export default function Indicators() {
   }
 
   var conformanceResults = getResults(
-    state.thickness,
-    [state.focusColor.rgb.r, state.focusColor.rgb.g, state.focusColor.rgb.b],
-    [state.inputBg.rgb.r, state.inputBg.rgb.g, state.inputBg.rgb.b],
-    [state.bgColor.rgb.r, state.bgColor.rgb.g, state.bgColor.rgb.b]
+    state.width,
+    hexToRgb(state.focusColor),
+    hexToRgb(state.inputBg),
+    hexToRgb(state.bgColor)
   )
 
   return (
