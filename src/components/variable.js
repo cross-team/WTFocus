@@ -3,21 +3,27 @@ import styled from '@emotion/styled'
 import VariableContext from 'providers/variable-context'
 
 var DropDown = styled.select`
-  width: 104%;
-  background-color: #343a40;
-  color: white;
-  border: 2px solid white;
-  border-radius: 4px;
-  margin-top: 0.5rem;
-`
-
-var Input = styled.input`
+  height: 36px;
   width: 100%;
   background-color: #343a40;
   color: white;
   border: 2px solid white;
   border-radius: 4px;
   margin-top: 0.5rem;
+  font-size: 1.25rem;
+`
+
+var Input = styled.input`
+  height: 36px;
+  width: 100%;
+  background-color: #343a40;
+  color: white;
+  border: 2px solid white;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+  padding-top: 0;
+  padding-bottom: 0;
 `
 
 var Label = styled.label``

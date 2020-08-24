@@ -6,6 +6,8 @@ import Examples from 'components/examples'
 import Variables from 'components/variables'
 import VariableContext from 'providers/variable-context'
 import { getFontColor } from 'utils/functions'
+import logoWhite from 'assets/svgs/logo-white.svg'
+
 var example = css``
 
 export default function Index() {
@@ -19,8 +21,9 @@ export default function Index() {
     background-color: #343a40;
     color: #fff;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
   `
 
   var Column2 = styled.div`
@@ -30,8 +33,9 @@ export default function Index() {
     background-color: ${state.bgColor};
     color: ${getFontColor(state.bgColor)};
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 
     input,
     select,
@@ -39,9 +43,14 @@ export default function Index() {
     }
   `
 
+  var Logo = styled.img`
+    width: 80%;
+  `
+
   return (
     <Layout title="WTFocus">
       <Column1>
+        <Logo src={logoWhite} />
         <Variables />
       </Column1>
       <Column2 css={example} ref={ref}>

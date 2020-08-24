@@ -115,17 +115,21 @@ export default function Examples() {
   `
 
   var Input = styled.input`
+    height: 36px;
     width: 100%;
     border: 2px solid #767676;
     border-radius: 4px;
     margin-top: ${+state.width + +state.offset + 4}px;
+    font-size: 1.25rem;
   `
 
   var DropDown = styled.select`
-    width: 102%;
+    height: 36px;
+    width: 100%;
     border: 2px solid #767676;
     border-radius: 4px;
     margin-top: ${+state.width + +state.offset + 4}px;
+    font-size: 1.25rem;
   `
 
   var Checkbox = styled.input`
