@@ -22,7 +22,7 @@ export default function Index() {
     color: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
   `
 
@@ -34,7 +34,7 @@ export default function Index() {
     color: ${getFontColor(state.bgColor)};
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
     input,
@@ -43,14 +43,17 @@ export default function Index() {
     }
   `
 
-  var Logo = styled.img`
-    width: 80%;
+  var MobileLogo = styled.img`
+    width: 70%;
+    @media only screen and (min-width: 1000px) {
+      display: none;
+    }
   `
 
   return (
     <Layout title="WTFocus">
       <Column1>
-        <Logo src={logoWhite} />
+        <MobileLogo src={logoWhite} />
         <Variables />
       </Column1>
       <Column2 css={example} ref={ref}>
