@@ -15,28 +15,28 @@ export default function Layout({ children, title }) {
 
   var [fontFiles, setFontFiles] = React.useState(``)
 
-  React.useEffect(() => {
-    fetch(
-      'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyCw_oxERFZFVJ45N0HglwdJR6h12F4471M'
-    )
-      .then(response => response.json())
-      .then(data => {
-        console.log(data.items)
-        setFontFiles(
-          data.items.reduce(
-            (accumulator, font) =>
-              accumulator +
-              `
-                @font-face {
-                  font-family: ${font.family};
-                  src: url('${font.files.regular}');
-                }
-              `,
-            ``
-          )
-        )
-      })
-  }, [])
+  // React.useEffect(() => {
+  //   fetch(
+  //     'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyCw_oxERFZFVJ45N0HglwdJR6h12F4471M'
+  //   )
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       console.log(data.items)
+  //       setFontFiles(
+  //         data.items.reduce(
+  //           (accumulator, font) =>
+  //             accumulator +
+  //             `
+  //               @font-face {
+  //                 font-family: ${font.family};
+  //                 src: url('${font.files.regular}');
+  //               }
+  //             `,
+  //           ``
+  //         )
+  //       )
+  //     })
+  // }, [])
 
   var Main = styled.main`
     ${fontFiles}
@@ -45,7 +45,7 @@ export default function Layout({ children, title }) {
     overflow-y: auto;
     display: flex;
     align-items: center;
-    font-family: ${state.fontFamily};
+    font-family: 'Roboto', sans-serif;
     font-weight: ${state.fontWeight};
 
     .hidden {
@@ -91,6 +91,10 @@ export default function Layout({ children, title }) {
         <html lang="en" />
         <meta charSet="utf-8" />
       </Helmet>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet"
+      />
       <Global
         styles={css`
           body {

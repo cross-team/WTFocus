@@ -44,6 +44,7 @@ export default function Index() {
   `
 
   var MobileLogo = styled.img`
+    margin-top: 2rem;
     width: 70%;
     @media only screen and (min-width: 1000px) {
       display: none;

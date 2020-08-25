@@ -1,19 +1,26 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import Indicator from 'components/indicator'
+import { css } from '@emotion/core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import VariableContext from 'providers/variable-context'
 import { hexToRgb, contrast } from 'utils/functions'
 
 var Root = styled.div`
+  background-color: white;
+  border: 1px solid #777;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
+  padding: 0 1rem 1rem 1rem;
+  margin-bottom: 4rem;
 `
 
 var Container = styled.div`
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
+  justify-content: space-around;
 `
 
 var Label = styled.p`
@@ -61,22 +68,46 @@ export default function Indicators() {
     hexToRgb(state.bgColor)
   )
 
+  var pass = css`
+    color: #2a039b;
+  `
+
+  var fail = css`
+    color: #df6b03;
+  `
+
   return (
     <Root>
       <Container>
-        <Indicator result={conformanceResults.AA} />
-        <Label>Level AA Compliance</Label>
+        <p
+          css={css`
+            color: #767676;
+          `}
+        >
+          <a href="https://www.w3.org/TR/WCAG22/#focus-appearance-minimum">
+            SC 2.4.11
+          </a>{' '}
+          WCAG 2.2 Draft
+        </p>
       </Container>
       <Container>
-        <Indicator result={conformanceResults.AAA} />
-        <Label>Level AAA Compliance</Label>
+        <Container css={conformanceResults.AA ? pass : fail}>
+          {conformanceResults.AA ? (
+            <FontAwesomeIcon icon={faCheckCircle} />
+          ) : (
+            <FontAwesomeIcon icon={faTimesCircle} />
+          )}
+          AA
+        </Container>
+        <Container css={conformanceResults.AAA ? pass : fail}>
+          {conformanceResults.AAA ? (
+            <FontAwesomeIcon icon={faCheckCircle} />
+          ) : (
+            <FontAwesomeIcon icon={faTimesCircle} />
+          )}
+          AAA
+        </Container>
       </Container>
-      <p>
-        According to{' '}
-        <a href="https://www.w3.org/TR/WCAG22/">
-          WCAG 2.2 W3C Working Draft 11 August 2020
-        </a>
-      </p>
     </Root>
   )
 }

@@ -72,7 +72,7 @@ export default function Variables() {
     padding: 0.5rem;
     border-radius: 8px;
     border: 0px;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
   `
 
   function handleApply() {
