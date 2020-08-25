@@ -34,10 +34,22 @@ export default function Examples() {
         outline-width: ${state.width}px;
       }
       50% {
-        outline-width: 12px;
+        outline-width: calc(${state.width}px + 10px);
       }
       100% {
         outline-width: ${state.width}px;
+      }
+    }
+
+    @keyframes bounce {
+      0% {
+        outline-offset: ${state.offset}px;
+      }
+      50% {
+        outline-offset: calc(${state.offset}px + 10px);
+      }
+      100% {
+        outline-offset: ${state.offset}px;
       }
     }
 
