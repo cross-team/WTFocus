@@ -98,6 +98,10 @@ export default function Index() {
     }
   `
 
+  var Github = styled.div`
+    margin-top: 7rem;
+  `
+
   return (
     <Layout title="WTFocus">
       <ColumnContainer>
@@ -149,10 +153,12 @@ export default function Index() {
             Concept by @modulist, design by @muqueca, code by @marcellopaiva
           </Text>
           <Text>Additional contributions by the GitHub community.</Text>
-          <Text>
-            Follow development, submit issues and patches on our Github
-            repository.
-          </Text>
+          <Github>
+            <Text>
+              Follow development, submit issues and patches on our Github
+              repository.
+            </Text>
+          </Github>
         </ContentContainer>
       </div>
     </Layout>
