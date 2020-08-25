@@ -2,9 +2,6 @@ import React from 'react'
 // import '@a11y/focus-trap'
 import styled from '@emotion/styled'
 import { Global, css } from '@emotion/core'
-import LoginExample from 'components/login-example'
-import MaterialExample from 'components/material-example'
-import BootstrapExample from 'components/bootstrap-example'
 import Indicators from 'components/indicators'
 import VariableContext from 'providers/variable-context'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
@@ -102,7 +99,7 @@ export default function Examples() {
     padding: 0 2rem;
     font-size: ${state.fontSize}rem;
   `
-  //calc(50vw * (212 / 889) + 4rem)
+
   var Heading = styled.h2`
     font-size: 3rem;
     margin-top: calc(50vw * (212 / 889) + 4rem);

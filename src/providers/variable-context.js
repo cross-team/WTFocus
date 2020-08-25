@@ -11,6 +11,7 @@ var initialState = {
   width: 2,
   offset: 4,
   bgColorHidden: true,
+  variableBg: '#343a40',
   bgColor: '#f2f2f2',
   inputBgHidden: true,
   inputBg: '#ffffff',
@@ -20,6 +21,7 @@ var initialState = {
   motion: 'none',
   duration: '1s',
   loop: 'infinite',
+  reducedMotion: 'true',
 }
 
 function reducer(state, action) {

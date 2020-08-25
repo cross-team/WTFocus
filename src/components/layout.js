@@ -40,7 +40,7 @@ export default function Layout({ children, title }) {
 
   var Main = styled.main`
     ${fontFiles}
-    background-color: #343a40;
+    background-color: ${state.variableBg};
     min-height: 100vh;
     width: 100%;
     overflow-y: auto;

@@ -8,21 +8,22 @@ import data from 'data/variable-data'
 
 export default function Variables() {
   var { state, setVariable } = React.useContext(VariableContext)
-  var [fontFamilies, setFontFamilies] = React.useState([])
+  var [reducedMotion, setReducedMotion] = React.useState(true)
+  // var [fontFamilies, setFontFamilies] = React.useState([])
 
-  React.useEffect(() => {
-    fetch(
-      'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyCw_oxERFZFVJ45N0HglwdJR6h12F4471M'
-    )
-      .then(response => response.json())
-      .then(data => {
-        setFontFamilies(
-          data.items.map(font => {
-            return { label: font.family, value: font.family }
-          })
-        )
-      })
-  }, [])
+  // React.useEffect(() => {
+  //   fetch(
+  //     'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyCw_oxERFZFVJ45N0HglwdJR6h12F4471M'
+  //   )
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       setFontFamilies(
+  //         data.items.map(font => {
+  //           return { label: font.family, value: font.family }
+  //         })
+  //       )
+  //     })
+  // }, [])
 
   var Root = styled.div`
     width: 60%;
@@ -76,6 +77,25 @@ export default function Variables() {
     margin-bottom: 4rem;
   `
 
+  var MotionContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 4rem;
+  `
+
+  var MotionVariables = styled.div`
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  `
+
+  var MotionText = styled.p`
+    font-size: 1rem;
+  `
+
   function handleApply() {
     let width = document.getElementById('width').value
     let focusColor = document.getElementById('focusColor').value
@@ -88,6 +108,10 @@ export default function Variables() {
     setVariable('bgColor', bgColor)
     setVariable('offset', offset)
     setVariable('outline', outline)
+  }
+
+  function handleReducedMotion(event) {
+    setReducedMotion(!reducedMotion)
   }
 
   return (
@@ -150,10 +174,55 @@ export default function Variables() {
           type="checkbox"
           name="reducedMotion"
           id="reducedMotion"
-          checked
+          value="reducedMotion"
+          checked={reducedMotion}
+          onChange={handleReducedMotion}
         />
         <label for="reducedMotion">Prefers reduced motion</label>
       </CheckboxContainer>
+      {reducedMotion ? null : (
+        <MotionContainer>
+          <MotionText>
+            Learn about Reduced Motion in this article by Eric Bailey.
+          </MotionText>
+          <MotionText>
+            An Introduction to the Reduced Motion Media Query
+          </MotionText>
+          <MotionVariables>
+            <Variable
+              label="Motion"
+              name="motion"
+              key="motion"
+              options={[
+                { label: 'None', value: 'none' },
+                { label: 'Pulsing', value: 'pulse' },
+                { label: 'Bouncing', value: 'bounce' },
+                { label: 'Fading', value: 'fade' },
+              ]}
+            />
+            <Variable
+              label="Speed"
+              name="duration"
+              key="duration"
+              options={[
+                { label: 'Slow', value: '2s' },
+                { label: 'Medium', value: '1s' },
+                { label: 'Fast', value: '650ms' },
+              ]}
+            />
+            <Variable
+              label="Loop"
+              name="loop"
+              key="loop"
+              options={[
+                { label: 'One', value: '1' },
+                { label: 'Two', value: '2' },
+                { label: 'Indefinitely', value: 'infinite' },
+              ]}
+            />
+          </MotionVariables>
+        </MotionContainer>
+      )}
       <Button onClick={handleApply}>Apply</Button>
     </Root>
   )

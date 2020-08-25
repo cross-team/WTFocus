@@ -15,15 +15,36 @@ export default function Index() {
   var { state } = React.useContext(VariableContext)
   var ref = React.useRef(null)
 
-  var Column1 = styled.div`
+  var Column1Container = styled.div`
     height: 100%;
     width: 50%;
     background-color: #343a40;
     color: #fff;
+    display: table-cell;
+    vertical-align: top;
+
+    @media only screen and (max-width: 1000px) {
+      width: 100%;
+    }
+  `
+
+  var Column1 = styled.div`
+    height: 100%;
+    width: 100%;
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+  `
+
+  var Column2Container = styled.div`
+    height: 100%;
+    width: 50%;
+    background-color: ${state.bgColor};
+    color: ${getFontColor(state.bgColor)};
+    display: table-cell;
+    vertical-align: top;
 
     @media only screen and (max-width: 1000px) {
       width: 100%;
@@ -32,17 +53,12 @@ export default function Index() {
 
   var Column2 = styled.div`
     height: 100%;
-    width: 50%;
-    background-color: ${state.bgColor};
-    color: ${getFontColor(state.bgColor)};
+    width: 100%;
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-
-    @media only screen and (max-width: 1000px) {
-      width: 100%;
-    }
 
     input,
     select,
@@ -69,9 +85,10 @@ export default function Index() {
 
   var ColumnContainer = styled.div`
     width: 100%;
-    display: flex;
+    display: table-row;
 
     @media only screen and (max-width: 1000px) {
+      display: flex;
       flex-direction: column;
     }
   `
@@ -105,14 +122,18 @@ export default function Index() {
   return (
     <Layout title="WTFocus">
       <ColumnContainer>
-        <Column1>
+        <Column1Container>
           <DesktopLogo src={logo} />
-          <MobileLogo src={logoWhite} />
-          <Variables />
-        </Column1>
-        <Column2 css={example} ref={ref}>
-          <Examples portalRef={ref} />
-        </Column2>
+          <Column1>
+            <MobileLogo src={logoWhite} />
+            <Variables />
+          </Column1>
+        </Column1Container>
+        <Column2Container>
+          <Column2 css={example} ref={ref}>
+            <Examples portalRef={ref} />
+          </Column2>
+        </Column2Container>
       </ColumnContainer>
       <div
         css={css`
@@ -139,6 +160,7 @@ export default function Index() {
       <div
         css={css`
           width: 100%;
+          background-color: '#343a40';
           color: ${getFontColor('#343a40')};
         `}
       >
