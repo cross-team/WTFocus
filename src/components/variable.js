@@ -19,6 +19,30 @@ var HelperText = styled.p`
   font-size: 0.75rem;
 `
 
+var DropDown = styled.select`
+  height: 36px;
+  width: 100%;
+  background-color: #343a40;
+  color: white;
+  border: 2px solid white;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+`
+
+var Input = styled.input`
+  height: 36px;
+  width: 100%;
+  background-color: #343a40;
+  color: white;
+  border: 2px solid white;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  padding-top: 0;
+  padding-bottom: 0;
+`
+
 export default function Variable({
   label,
   name,
@@ -29,30 +53,6 @@ export default function Variable({
 }) {
   var variableContext = React.useContext(VariableContext)
   var [value, setValue] = React.useState(variableContext.state[name])
-
-  var DropDown = styled.select`
-    height: 36px;
-    width: 100%;
-    background-color: #343a40;
-    color: white;
-    border: 2px solid white;
-    border-radius: 4px;
-    margin-top: 0.5rem;
-    font-size: ${variableContext.state.fontSize}rem;
-  `
-
-  var Input = styled.input`
-    height: 36px;
-    width: 100%;
-    background-color: #343a40;
-    color: white;
-    border: 2px solid white;
-    border-radius: 4px;
-    margin-top: 0.5rem;
-    font-size: ${variableContext.state.fontSize}rem;
-    padding-top: 0;
-    padding-bottom: 0;
-  `
 
   var handleChange = event => {
     setValue(event.target.value)

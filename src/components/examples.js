@@ -78,7 +78,7 @@ export default function Examples() {
       outline-offset: ${state.offset}px;
     }
 
-    ${state.motion !== 'none' && animations}
+    ${animations}
 
     @media (prefers-reduced-motion) {
       a:focus,

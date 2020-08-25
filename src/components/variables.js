@@ -8,7 +8,6 @@ import data from 'data/variable-data'
 
 export default function Variables() {
   var { state, setVariable } = React.useContext(VariableContext)
-  var [reducedMotion, setReducedMotion] = React.useState(true)
   // var [fontFamilies, setFontFamilies] = React.useState([])
 
   // React.useEffect(() => {
@@ -102,16 +101,25 @@ export default function Variables() {
     let bgColor = document.getElementById('bgColor').value
     let offset = document.getElementById('offset').value
     let outline = document.getElementById('outline').value
+    let motion = document.getElementById('motion').value
+    let duration = document.getElementById('duration').value
+    let loop = document.getElementById('loop').value
 
     setVariable('width', width)
     setVariable('focusColor', focusColor)
     setVariable('bgColor', bgColor)
     setVariable('offset', offset)
     setVariable('outline', outline)
+    setVariable('motion', motion)
+    setVariable('duration', duration)
+    setVariable('loop', loop)
   }
 
   function handleReducedMotion(event) {
-    setReducedMotion(!reducedMotion)
+    if (!state.reducedMotion) {
+      setVariable('motion', 'none')
+    }
+    setVariable('reducedMotion', !state.reducedMotion)
   }
 
   return (
@@ -175,12 +183,12 @@ export default function Variables() {
           name="reducedMotion"
           id="reducedMotion"
           value="reducedMotion"
-          checked={reducedMotion}
+          checked={state.reducedMotion}
           onChange={handleReducedMotion}
         />
         <label for="reducedMotion">Prefers reduced motion</label>
       </CheckboxContainer>
-      {reducedMotion ? null : (
+      {state.reducedMotion ? null : (
         <MotionContainer>
           <MotionText>
             Learn about Reduced Motion in this article by Eric Bailey.
