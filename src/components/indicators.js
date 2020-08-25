@@ -69,11 +69,17 @@ export default function Indicators() {
   )
 
   var pass = css`
+    font-weight: bold;
     color: #2a039b;
   `
 
   var fail = css`
+    font-weight: bold;
     color: #df6b03;
+  `
+
+  var iconStyles = css`
+    margin-right: 0.5rem;
   `
 
   return (
@@ -93,17 +99,17 @@ export default function Indicators() {
       <Container>
         <Container css={conformanceResults.AA ? pass : fail}>
           {conformanceResults.AA ? (
-            <FontAwesomeIcon icon={faCheckCircle} />
+            <FontAwesomeIcon icon={faCheckCircle} css={iconStyles} />
           ) : (
-            <FontAwesomeIcon icon={faTimesCircle} />
+            <FontAwesomeIcon icon={faTimesCircle} css={iconStyles} />
           )}
           AA
         </Container>
         <Container css={conformanceResults.AAA ? pass : fail}>
           {conformanceResults.AAA ? (
-            <FontAwesomeIcon icon={faCheckCircle} />
+            <FontAwesomeIcon icon={faCheckCircle} css={iconStyles} />
           ) : (
-            <FontAwesomeIcon icon={faTimesCircle} />
+            <FontAwesomeIcon icon={faTimesCircle} css={iconStyles} />
           )}
           AAA
         </Container>
