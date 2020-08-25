@@ -50,6 +50,7 @@ export default function Variables() {
 
   var Heading = styled.h2`
     font-size: 3rem;
+    margin-top: 2rem;
   `
 
   var Checkbox = styled.input`

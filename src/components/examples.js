@@ -102,9 +102,10 @@ export default function Examples() {
     padding: 0 2rem;
     font-size: 1.25rem;
   `
-
+  //calc(50vw * (212 / 889) + 4rem)
   var Heading = styled.h2`
     font-size: 3rem;
+    margin-top: calc(50vw * (212 / 889) + 4rem);
   `
 
   var InputContainer = styled.div`

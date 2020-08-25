@@ -7,6 +7,7 @@ import Variables from 'components/variables'
 import VariableContext from 'providers/variable-context'
 import { getFontColor } from 'utils/functions'
 import logoWhite from 'assets/svgs/logo-white.svg'
+import logo from 'assets/svgs/logo.svg'
 
 var example = css``
 
@@ -15,7 +16,6 @@ export default function Index() {
   var ref = React.useRef(null)
 
   var Column1 = styled.div`
-    padding-top: 1rem;
     height: 100%;
     width: 100%;
     background-color: #343a40;
@@ -27,7 +27,6 @@ export default function Index() {
   `
 
   var Column2 = styled.div`
-    padding-top: 1rem;
     height: 100%;
     width: 100%;
     background-color: ${state.bgColor};
@@ -50,10 +49,20 @@ export default function Index() {
       display: none;
     }
   `
+  var DesktopLogo = styled.img`
+    position: relative;
+    left: calc(49%);
+    margin-top: 2rem;
+    width: 100%;
+    @media only screen and (max-width: 1000px) {
+      display: none;
+    }
+  `
 
   return (
     <Layout title="WTFocus">
       <Column1>
+        <DesktopLogo src={logo} />
         <MobileLogo src={logoWhite} />
         <Variables />
       </Column1>

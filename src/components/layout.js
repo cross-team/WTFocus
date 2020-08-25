@@ -40,11 +40,12 @@ export default function Layout({ children, title }) {
 
   var Main = styled.main`
     ${fontFiles}
-    height: 100vh;
+    background-color: #343a40;
+    min-height: 100vh;
     width: 100%;
     overflow-y: auto;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     font-family: 'Roboto', sans-serif;
     font-weight: ${state.fontWeight};
 
