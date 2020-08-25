@@ -45,16 +45,13 @@ export default function Layout({ children, title }) {
     width: 100%;
     overflow-y: auto;
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     font-family: 'Roboto', sans-serif;
     font-weight: ${state.fontWeight};
 
     .hidden {
       display: none;
-    }
-
-    @media only screen and (max-width: 1000px) {
-      flex-direction: column;
     }
   `
 

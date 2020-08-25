@@ -23,10 +23,6 @@ var Container = styled.div`
   justify-content: space-around;
 `
 
-var Label = styled.p`
-  margin: 0.5rem;
-`
-
 export default function Indicators() {
   var { state } = React.useContext(VariableContext)
 
