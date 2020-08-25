@@ -5,6 +5,7 @@ export default VariableContext
 
 var initialState = {
   theme: 'html',
+  fontSize: 1.2,
   fontFamily: 'Roboto',
   fontWeight: 400,
   width: 2,

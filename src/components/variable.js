@@ -2,30 +2,6 @@ import React from 'react'
 import styled from '@emotion/styled'
 import VariableContext from 'providers/variable-context'
 
-var DropDown = styled.select`
-  height: 36px;
-  width: 100%;
-  background-color: #343a40;
-  color: white;
-  border: 2px solid white;
-  border-radius: 4px;
-  margin-top: 0.5rem;
-  font-size: 1.25rem;
-`
-
-var Input = styled.input`
-  height: 36px;
-  width: 100%;
-  background-color: #343a40;
-  color: white;
-  border: 2px solid white;
-  border-radius: 4px;
-  margin-top: 0.5rem;
-  font-size: 1.25rem;
-  padding-top: 0;
-  padding-bottom: 0;
-`
-
 var Label = styled.label``
 
 var Option = styled.option``
@@ -53,6 +29,30 @@ export default function Variable({
 }) {
   var variableContext = React.useContext(VariableContext)
   var [value, setValue] = React.useState(variableContext.state[name])
+
+  var DropDown = styled.select`
+    height: 36px;
+    width: 100%;
+    background-color: #343a40;
+    color: white;
+    border: 2px solid white;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    font-size: ${variableContext.state.fontSize}rem;
+  `
+
+  var Input = styled.input`
+    height: 36px;
+    width: 100%;
+    background-color: #343a40;
+    color: white;
+    border: 2px solid white;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    font-size: ${variableContext.state.fontSize}rem;
+    padding-top: 0;
+    padding-bottom: 0;
+  `
 
   var handleChange = event => {
     setValue(event.target.value)

@@ -14,7 +14,7 @@ var Root = styled.div`
   flex-direction: column;
   margin-top: 1rem;
   padding: 0 1rem 1rem 1rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 `
 
 var Container = styled.div`

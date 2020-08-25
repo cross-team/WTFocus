@@ -32,7 +32,7 @@ export default function Variables() {
     align-items: center;
     justify-content: space-between;
     padding: 0 2rem;
-    font-size: 1.25rem;
+    font-size: ${state.fontSize}rem;
   `
 
   var VariablesContainer = styled.div`
@@ -69,7 +69,7 @@ export default function Variables() {
     align-self: flex-end;
     background-color: #207df8;
     color: white;
-    font-size: 1.25rem;
+    font-size: ${state.fontSize}rem;
     padding: 0.5rem;
     border-radius: 8px;
     border: 0px;

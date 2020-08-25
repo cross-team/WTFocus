@@ -100,7 +100,7 @@ export default function Examples() {
     align-items: center;
     justify-content: space-between;
     padding: 0 2rem;
-    font-size: 1.25rem;
+    font-size: ${state.fontSize}rem;
   `
   //calc(50vw * (212 / 889) + 4rem)
   var Heading = styled.h2`
@@ -121,7 +121,7 @@ export default function Examples() {
     border: 2px solid #767676;
     border-radius: 4px;
     margin-top: ${+state.width + +state.offset + 4}px;
-    font-size: 1.25rem;
+    font-size: ${state.fontSize}rem;
   `
 
   var DropDown = styled.select`
@@ -130,7 +130,7 @@ export default function Examples() {
     border: 2px solid #767676;
     border-radius: 4px;
     margin-top: ${+state.width + +state.offset + 4}px;
-    font-size: 1.25rem;
+    font-size: ${state.fontSize}rem;
   `
 
   var Checkbox = styled.input`
@@ -161,7 +161,7 @@ export default function Examples() {
     align-self: flex-end;
     background-color: #207df8;
     color: white;
-    font-size: 1.25rem;
+    font-size: ${state.fontSize}rem;
     padding: 0.5rem;
     border-radius: 8px;
     border: 0px;
