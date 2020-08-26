@@ -96,23 +96,28 @@ export default function Variables() {
   `
 
   function handleApply() {
+    console.log('apply called')
     let width = document.getElementById('width').value
     let focusColor = document.getElementById('focusColor').value
     let bgColor = document.getElementById('bgColor').value
     let offset = document.getElementById('offset').value
     let outline = document.getElementById('outline').value
-    let motion = document.getElementById('motion').value
-    let duration = document.getElementById('duration').value
-    let loop = document.getElementById('loop').value
 
     setVariable('width', width)
     setVariable('focusColor', focusColor)
     setVariable('bgColor', bgColor)
     setVariable('offset', offset)
     setVariable('outline', outline)
-    setVariable('motion', motion)
-    setVariable('duration', duration)
-    setVariable('loop', loop)
+
+    if (!state.reducedMotion) {
+      let motion = document.getElementById('motion').value
+      let duration = document.getElementById('duration').value
+      let loop = document.getElementById('loop').value
+
+      setVariable('motion', motion)
+      setVariable('duration', duration)
+      setVariable('loop', loop)
+    }
   }
 
   function handleReducedMotion(event) {
