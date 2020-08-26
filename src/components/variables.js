@@ -93,6 +93,9 @@ export default function Variables() {
 
   var MotionText = styled.p`
     font-size: 1rem;
+    a {
+      color: #77b1fc;
+    }
   `
 
   function handleApply() {
@@ -196,10 +199,13 @@ export default function Variables() {
       {state.reducedMotion ? null : (
         <MotionContainer>
           <MotionText>
-            Learn about Reduced Motion in this article by Eric Bailey.
+            Learn about Reduced Motion in this article by{' '}
+            <a href="https://ericwbailey.design/">Eric Bailey</a>.
           </MotionText>
           <MotionText>
-            An Introduction to the Reduced Motion Media Query
+            <a href="https://css-tricks.com/introduction-reduced-motion-media-query/">
+              An Introduction to the Reduced Motion Media Query
+            </a>
           </MotionText>
           <MotionVariables>
             <Variable

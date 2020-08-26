@@ -110,6 +110,10 @@ export default function Index() {
     font-size: ${state.fontSize}rem;
     margin-top: 1rem;
 
+    a {
+      color: #77b1fc;
+    }
+
     @media only screen and (max-width: 1000px) {
       font-size: 1rem;
     }
@@ -172,13 +176,18 @@ export default function Index() {
             Paiva
           </Text>
           <Text>
-            Concept by @modulist, design by @muqueca, code by @marcellopaiva
+            Concept by <a href="https://github.com/modulist">@modulist</a>,
+            design by <a href="mpaiva">@mpaiva</a>, code by{' '}
+            <a href="https://github.com/MarcelloPaiva">@MarcelloPaiva</a>
           </Text>
           <Text>Additional contributions by the GitHub community.</Text>
           <Github>
             <Text>
-              Follow development, submit issues and patches on our Github
-              repository.
+              Follow development, submit issues and patches on our{' '}
+              <a href="https://github.com/cross-team/WTFocus">
+                Github repository
+              </a>
+              .
             </Text>
           </Github>
         </ContentContainer>
