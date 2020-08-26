@@ -8,6 +8,7 @@ import VariableContext from 'providers/variable-context'
 import { getFontColor } from 'utils/functions'
 import logoWhite from 'assets/svgs/logo-white.svg'
 import logo from 'assets/svgs/logo.svg'
+import LogoSVG from 'assets/svgs/logo-svg'
 
 var example = css``
 
@@ -73,15 +74,6 @@ export default function Index() {
       display: none;
     }
   `
-  var DesktopLogo = styled.img`
-    position: relative;
-    left: calc(49%);
-    margin-top: 2rem;
-    width: 100%;
-    @media only screen and (max-width: 1000px) {
-      display: none;
-    }
-  `
 
   var ColumnContainer = styled.div`
     width: 100%;
@@ -123,11 +115,13 @@ export default function Index() {
     margin-top: 7rem;
   `
 
+  console.log('logo: ', logo)
+  console.log('LogoSVG: ', LogoSVG())
   return (
     <Layout title="WTFocus">
       <ColumnContainer>
         <Column1Container>
-          <DesktopLogo src={logo} />
+          <LogoSVG />
           <Column1>
             <MobileLogo src={logoWhite} />
             <Variables />
