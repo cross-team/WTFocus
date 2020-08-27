@@ -6,9 +6,10 @@ import Examples from 'components/examples'
 import Variables from 'components/variables'
 import VariableContext from 'providers/variable-context'
 import { getFontColor } from 'utils/functions'
-import logoWhite from 'assets/svgs/logo-white.svg'
-import logo from 'assets/svgs/logo.svg'
+import LogoWhiteSVG from 'assets/svgs/logo-white-svg'
 import LogoSVG from 'assets/svgs/logo-svg'
+
+// import 'bootstrap/dist/css/bootstrap.min.css'
 
 var example = css``
 
@@ -67,14 +68,6 @@ export default function Index() {
     }
   `
 
-  var MobileLogo = styled.img`
-    margin-top: 2rem;
-    width: 70%;
-    @media only screen and (min-width: 1000px) {
-      display: none;
-    }
-  `
-
   var ColumnContainer = styled.div`
     width: 100%;
     display: table-row;
@@ -115,15 +108,13 @@ export default function Index() {
     margin-top: 7rem;
   `
 
-  console.log('logo: ', logo)
-  console.log('LogoSVG: ', LogoSVG())
   return (
     <Layout title="WTFocus">
       <ColumnContainer>
         <Column1Container>
           <LogoSVG />
           <Column1>
-            <MobileLogo src={logoWhite} />
+            <LogoWhiteSVG />
             <Variables />
           </Column1>
         </Column1Container>

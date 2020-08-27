@@ -121,25 +121,27 @@ export default function Examples() {
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin: 1rem;
+    margin: 0.5rem;
   `
 
   var Input = styled.input`
-    height: 36px;
+    height: auto;
     width: 100%;
     border: 2px solid #767676;
     border-radius: 4px;
     margin-top: ${+state.width + +state.offset + 4}px;
     font-size: ${state.fontSize}rem;
+    padding: 0.5rem;
   `
 
   var DropDown = styled.select`
-    height: 36px;
+    height: auto;
     width: 100%;
     border: 2px solid #767676;
     border-radius: 4px;
     margin-top: ${+state.width + +state.offset + 4}px;
     font-size: ${state.fontSize}rem;
+    padding: 0.5rem;
   `
 
   var Checkbox = styled.input`
@@ -159,6 +161,7 @@ export default function Examples() {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 2rem;
   `
 
   var Link = styled.a`
@@ -174,11 +177,13 @@ export default function Examples() {
     padding: 0.5rem;
     border-radius: 8px;
     border: 0px;
+    padding: 1rem 2rem;
   `
 
   return (
     <Root css={outlineStyles}>
       <Heading>Preview</Heading>
+      <Indicators />
       <InputContainer>
         <label for="input-ex">Input</label>
         <Input
@@ -217,7 +222,6 @@ export default function Examples() {
         <Link href="#">Link</Link>
         <Button>Button</Button>
       </LinkContainer>
-      <Indicators />
     </Root>
   )
 }

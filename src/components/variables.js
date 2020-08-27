@@ -74,6 +74,7 @@ export default function Variables() {
     border-radius: 8px;
     border: 0px;
     margin-bottom: 4rem;
+    padding: 1rem 2rem;
   `
 
   var MotionContainer = styled.div`

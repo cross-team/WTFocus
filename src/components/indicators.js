@@ -11,16 +11,26 @@ var Root = styled.div`
   border: 1px solid #777;
   border-radius: 8px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   margin-top: 1rem;
-  padding: 0 1rem 1rem 1rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
   margin-bottom: 2rem;
+  width: 100%;
+
+  @media only screen and (max-width: 1000px) {
+    flex-direction: column;
+    padding-bottom: 1rem;
+  }
 `
 
 var Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+
+  @media only screen and (max-width: 1000px) {
+    justify-content: center;
+  }
 `
 
 export default function Indicators() {
@@ -76,6 +86,7 @@ export default function Indicators() {
 
   var iconStyles = css`
     margin-right: 0.5rem;
+    margin-left: 1rem;
   `
 
   return (

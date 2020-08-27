@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 import VariableContext from 'providers/variable-context'
 
 var Label = styled.label``
@@ -20,7 +21,7 @@ var HelperText = styled.p`
 `
 
 var DropDown = styled.select`
-  height: 36px;
+  height: auto;
   width: 100%;
   background-color: #343a40;
   color: white;
@@ -28,10 +29,11 @@ var DropDown = styled.select`
   border-radius: 4px;
   margin-top: 0.5rem;
   font-size: 1.2rem;
+  padding: 0.5rem;
 `
 
 var Input = styled.input`
-  height: 36px;
+  height: auto;
   width: 100%;
   background-color: #343a40;
   color: white;
@@ -39,8 +41,7 @@ var Input = styled.input`
   border-radius: 4px;
   margin-top: 0.5rem;
   font-size: 1.2rem;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 0.5rem;
 `
 
 export default function Variable({
@@ -71,6 +72,9 @@ export default function Variable({
           max={type === 'number' ? '10' : 'any'}
           value={value}
           onChange={handleChange}
+          css={css`
+            ${type === 'color' && `padding: 0; height: 2.5rem;`}
+          `}
         />
       </VariableContainer>
     )
