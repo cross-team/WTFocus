@@ -86,12 +86,12 @@ export default function Index() {
     }
   `
 
-  var Heading2 = styled.div`
+  var Heading2 = styled.h2`
     font-size: 2rem;
     font-weight: bold;
   `
 
-  var Text = styled.div`
+  var Text = styled.p`
     font-size: ${state.fontSize}rem;
     margin-top: 1rem;
 

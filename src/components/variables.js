@@ -24,7 +24,7 @@ export default function Variables() {
   //     })
   // }, [])
 
-  var Root = styled.div`
+  var Root = styled.form`
     width: 60%;
     max-width: 640px;
     display: flex;
@@ -132,8 +132,8 @@ export default function Variables() {
   }
 
   return (
-    <Root>
-      <Heading>Focus Styles</Heading>
+    <Root aria-labelledby="variablesHeading">
+      <Heading id="variablesHeading">Focus Styles</Heading>
       <VariablesContainer>
         <VariablesColumn
           css={css`

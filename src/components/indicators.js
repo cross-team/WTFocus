@@ -104,7 +104,12 @@ export default function Indicators() {
         </p>
       </Container>
       <Container>
-        <Container css={conformanceResults.AA ? pass : fail}>
+        <Container
+          css={conformanceResults.AA ? pass : fail}
+          aria-label={`${
+            conformanceResults.AA ? 'pass' : 'fail'
+          }ing AA level conformance`}
+        >
           {conformanceResults.AA ? (
             <FontAwesomeIcon icon={faCheckCircle} css={iconStyles} />
           ) : (
@@ -112,7 +117,12 @@ export default function Indicators() {
           )}
           AA
         </Container>
-        <Container css={conformanceResults.AAA ? pass : fail}>
+        <Container
+          css={conformanceResults.AAA ? pass : fail}
+          aria-label={`${
+            conformanceResults.AAA ? 'pass' : 'fail'
+          }ing AAA level conformance`}
+        >
           {conformanceResults.AAA ? (
             <FontAwesomeIcon icon={faCheckCircle} css={iconStyles} />
           ) : (

@@ -24,6 +24,7 @@ export default function LogoSVG() {
       viewBox="0 0 889 212"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      aria-label="WTFocus logo showing the letters W T F O C U S but the O is an unselected radio button with focus"
     >
       <path
         d="M179.52 58.704L142.08 162H113.28L90.048 97.872L66.048 162H37.248L0 58.704H28.224L52.608 128.592L77.952 58.704H103.296L127.872 128.592L153.024 58.704H179.52Z"
