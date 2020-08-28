@@ -24,8 +24,8 @@ export default function Variables() {
   //     })
   // }, [])
 
-  var Root = styled.article`
-    width: 60%;
+  var Root = styled.section`
+    width: 80%;
     max-width: 640px;
     display: flex;
     flex-direction: column;

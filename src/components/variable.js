@@ -73,7 +73,7 @@ export default function Variable({
           value={value}
           onChange={handleChange}
           css={css`
-            ${type === 'color' && `padding: 0; height: 2.5rem;`}
+            ${type === 'color' && `padding: 0; height: 3rem;`}
           `}
         />
       </VariableContainer>

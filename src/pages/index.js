@@ -9,7 +9,7 @@ import { getFontColor } from 'utils/functions'
 import LogoWhiteSVG from 'assets/svgs/logo-white-svg'
 import LogoSVG from 'assets/svgs/logo-svg'
 
-// import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 var example = css``
 

@@ -95,6 +95,7 @@ export default function Indicators() {
         <p
           css={css`
             color: #767676;
+            margin: 0;
           `}
         >
           <a href="https://www.w3.org/TR/WCAG22/#focus-appearance-minimum">

@@ -101,8 +101,8 @@ export default function Examples() {
       }
     }
   `
-  var Root = styled.article`
-    width: 60%;
+  var Root = styled.section`
+    width: 80%;
     max-width: 640px;
     display: flex;
     flex-direction: column;
@@ -115,6 +115,7 @@ export default function Examples() {
   var Heading = styled.h2`
     font-size: 3rem;
     margin-top: calc(50vw * (212 / 889) + 4rem);
+    white-space: nowrap;
   `
 
   var InputContainer = styled.div`
