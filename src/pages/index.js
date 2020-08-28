@@ -18,8 +18,7 @@ export default function Index() {
   var ref = React.useRef(null)
 
   var Column1Container = styled.div`
-    height: 100%;
-    width: 50%;
+    width: 50vw;
     background-color: #343a40;
     color: #fff;
     display: table-cell;
@@ -31,7 +30,6 @@ export default function Index() {
   `
 
   var Column1 = styled.div`
-    height: 100%;
     width: 100%;
     display: flex;
     flex-grow: 1;
@@ -42,7 +40,7 @@ export default function Index() {
 
   var Column2Container = styled.div`
     height: 100%;
-    width: 50%;
+    width: 50vw;
     background-color: ${state.bgColor};
     color: ${getFontColor(state.bgColor)};
     display: table-cell;

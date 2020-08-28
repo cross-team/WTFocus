@@ -101,7 +101,7 @@ export default function Examples() {
       }
     }
   `
-  var Root = styled.div`
+  var Root = styled.article`
     width: 60%;
     max-width: 640px;
     display: flex;
@@ -181,8 +181,8 @@ export default function Examples() {
   `
 
   return (
-    <Root css={outlineStyles}>
-      <Heading>Preview</Heading>
+    <Root role="region" css={outlineStyles} aria-labelledby="previewHeading">
+      <Heading id="previewHeading">Focus Preview</Heading>
       <Indicators />
       <InputContainer>
         <label for="input-ex">Input</label>

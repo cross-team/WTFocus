@@ -8,7 +8,7 @@ import { hexToRgb, contrast } from 'utils/functions'
 
 var Root = styled.div`
   background-color: white;
-  border: 1px solid #777;
+  border: 1px solid #e6e6e6;
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
