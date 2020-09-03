@@ -220,8 +220,10 @@ export default function Examples() {
         <label for="radio-ex">Radio</label>
       </CheckboxContainer>
       <LinkContainer>
-        <Link href="#">Link</Link>
-        <Button>Button</Button>
+        <Link href="#" aria-label="link example">
+          Link
+        </Link>
+        <Button aria-label="button example">Button</Button>
       </LinkContainer>
     </Root>
   )
