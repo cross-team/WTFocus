@@ -155,8 +155,8 @@ export default function Index() {
           <Heading2>About wtfoc.us</Heading2>
           <Text>
             This project was created to support a white paper submission to ICT
-            Accessibility Testing Symposium by Claudio Luis Vera and Marcelo
-            Paiva
+            Accessibility Testing Symposium by Claudio Luis Vera, Marcelo Paiva,
+            and Marcello Paiva
           </Text>
           <Text>
             Concept by <a href="https://github.com/modulist">@modulist</a>,
