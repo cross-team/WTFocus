@@ -9,7 +9,6 @@ import { hexToRgb } from 'utils/functions'
 
 export default function Examples() {
   var { state, setVariable } = React.useContext(VariableContext)
-  console.log(state.focusColor)
   var [trapInactive, setTrapInactive] = React.useState(false)
   var symbol
   var symbolWeight

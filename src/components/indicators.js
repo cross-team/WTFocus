@@ -42,7 +42,6 @@ export default function Indicators() {
   // bg - Color of the adjacent background
   // Colors are passed as an array of the rgb values: [r, g, b]
   function getResults(size, outline, target, bg) {
-    console.log(outline, target, bg)
     let results = {
       AA: false,
       AAA: false,

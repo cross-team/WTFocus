@@ -100,7 +100,6 @@ export default function Variables() {
   `
 
   function handleApply() {
-    console.log('apply called')
     let width = document.getElementById('width').value
     let focusColor = document.getElementById('focusColor').value
     let bgColor = document.getElementById('bgColor').value
