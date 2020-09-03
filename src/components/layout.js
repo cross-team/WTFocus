@@ -21,7 +21,6 @@ export default function Layout({ children, title }) {
   //   )
   //     .then(response => response.json())
   //     .then(data => {
-  //       console.log(data.items)
   //       setFontFiles(
   //         data.items.reduce(
   //           (accumulator, font) =>

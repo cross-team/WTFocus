@@ -8,11 +8,6 @@ export default function ColorVariable({ name, label }) {
   var { state, setVariable } = React.useContext(VariableContext)
   var pickerRef = React.useRef(null)
 
-  function handleClickOutside() {
-    console.log(`closing ${name} picker`)
-    setVariable(`${name}Hidden`, true)
-  }
-
   function handleChange(color) {
     setVariable(`${name}`, color)
   }
