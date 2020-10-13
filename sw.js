@@ -27,17 +27,17 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-025ffa64aab0c423dd5d.js"
+    "url": "webpack-runtime-1ce392968929d7e678be.js"
   },
   {
     "url": "framework-a576ae5ab153fa4a7c27.js"
   },
   {
-    "url": "app-d073d1e184c1c7a43875.js"
+    "url": "app-1f2add726a75cd3bee66.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "f31f091d234a6e2e3b1812e701ad9f11"
+    "revision": "e44ef913c9588142c77a5e17ee1f33fa"
   },
   {
     "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-0097d26fbd474b34ff9b.js"
@@ -48,7 +48,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "cb7c8238c2f230e1c88f90b2babcb7a1"
+    "revision": "633d4821296e10ecce5b2c7c601bddd7"
   },
   {
     "url": "polyfill-cc494c43cd4a83249208.js"
@@ -143,7 +143,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/WTFocus/app-d073d1e184c1c7a43875.js`))) {
+  if (!resources || !(await caches.match(`/WTFocus/app-1f2add726a75cd3bee66.js`))) {
     return await fetch(event.request)
   }
 
