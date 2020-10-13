@@ -1,5 +1,23 @@
 import React from 'react'
 
+export function getURLData(location) {
+  let urlData = new URLSearchParams(location.search)
+  return {
+    bgColor: urlData.get('bgColor') || '#f2f2f2',
+    inputBg: urlData.get('inputBg') || '#ffffff',
+    focusColor: urlData.get('focusColor') || '#0e63c8',
+    width: urlData.get('width') || '2',
+    offset: urlData.get('offset') || '4',
+    outline: urlData.get('outline') || 'solid',
+    reducedMotion: urlData.get('reducedMotion') || 'true',
+    motion: urlData.get('motion') || 'none',
+    duration: urlData.get('duration') || '1s',
+    loop: urlData.get('loop') || 'infinite',
+  }
+}
+
+export function updateURL(history) {}
+
 export function hexToRgb(hex) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
   return result

@@ -103,12 +103,14 @@ export default function Variables() {
     let width = document.getElementById('width').value
     let focusColor = document.getElementById('focusColor').value
     let bgColor = document.getElementById('bgColor').value
+    let inputBg = document.getElementById('inputBg').value
     let offset = document.getElementById('offset').value
     let outline = document.getElementById('outline').value
 
     setVariable('width', width)
     setVariable('focusColor', focusColor)
     setVariable('bgColor', bgColor)
+    setVariable('inputBg', inputBg)
     setVariable('offset', offset)
     setVariable('outline', outline)
 
@@ -140,13 +142,6 @@ export default function Variables() {
           `}
         >
           <Variable
-            label="Width"
-            name="width"
-            input={true}
-            type="number"
-            key="width"
-          />
-          <Variable
             label="Color"
             name="focusColor"
             input={true}
@@ -160,12 +155,26 @@ export default function Variables() {
             type="color"
             key="bgColor"
           />
+          <Variable
+            label="Input Background"
+            name="inputBg"
+            input={true}
+            type="color"
+            key="inputBg"
+          />
         </VariablesColumn>
         <VariablesColumn
           css={css`
             margin-left: 1rem;
           `}
         >
+          <Variable
+            label="Width"
+            name="width"
+            input={true}
+            type="number"
+            key="width"
+          />
           <Variable
             label="Offset"
             name="offset"
