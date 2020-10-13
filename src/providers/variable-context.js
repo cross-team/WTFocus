@@ -4,24 +4,25 @@ var VariableContext = React.createContext()
 export default VariableContext
 
 var initialState = {
-  theme: 'html',
-  fontSize: 1.2,
-  fontFamily: 'Roboto',
-  fontWeight: 400,
+  // URL Settings
+  bgColor: '#f2f2f2',
+  inputBg: '#ffffff',
+  focusColor: '#0e63c8',
   width: 2,
   offset: 4,
-  bgColorHidden: true,
-  variableBg: '#343a40',
-  bgColor: '#f2f2f2',
-  inputBgHidden: true,
-  inputBg: '#ffffff',
-  focusColorHidden: true,
-  focusColor: '#0e63c8',
   outline: 'solid',
+  reducedMotion: 'true',
   motion: 'none',
   duration: '1s',
   loop: 'infinite',
-  reducedMotion: 'true',
+  // theme: 'html',
+  // inputBgHidden: true,
+  // focusColorHidden: true,
+  // bgColorHidden: true,
+  fontSize: 1.2,
+  fontFamily: 'Roboto',
+  fontWeight: 400,
+  variableBg: '#343a40',
 }
 
 function reducer(state, action) {

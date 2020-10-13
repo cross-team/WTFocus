@@ -132,6 +132,7 @@ export default function Examples() {
     margin-top: ${+state.width + +state.offset + 4}px;
     font-size: ${state.fontSize}rem;
     padding: 0.5rem;
+    background-color: ${state.inputBg};
   `
 
   var DropDown = styled.select`
@@ -142,6 +143,7 @@ export default function Examples() {
     margin-top: ${+state.width + +state.offset + 4}px;
     font-size: ${state.fontSize}rem;
     padding: 0.5rem;
+    background-color: ${state.inputBg};
   `
 
   var Checkbox = styled.input`

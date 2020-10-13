@@ -125,8 +125,8 @@ export default function Index() {
       <div
         css={css`
           width: 100%;
-          background-color: ${state.focusColor};
-          color: ${getFontColor(state.focusColor)};
+          background-color: #fff;
+          color: #000;
         `}
       >
         <ContentContainer>
