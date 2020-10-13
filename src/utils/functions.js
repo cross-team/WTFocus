@@ -1,11 +1,12 @@
 import React from 'react'
+import { navigate } from 'gatsby'
 
 export function getURLData(location) {
   let urlData = new URLSearchParams(location.search)
   return {
-    bgColor: urlData.get('bgColor') || '#f2f2f2',
-    inputBg: urlData.get('inputBg') || '#ffffff',
-    focusColor: urlData.get('focusColor') || '#0e63c8',
+    bgColor: urlData.get('bgColor') || 'f2f2f2',
+    inputBg: urlData.get('inputBg') || 'ffffff',
+    focusColor: urlData.get('focusColor') || '0e63c8',
     width: urlData.get('width') || '2',
     offset: urlData.get('offset') || '4',
     outline: urlData.get('outline') || 'solid',
@@ -28,7 +29,7 @@ export function setParams({
   duration = '1s',
   loop = 'infinite',
 }) {
-  let urlData = URLSearchParams()
+  let urlData = new URLSearchParams()
   urlData.set('bgColor', bgColor)
   urlData.set('inputBg', inputBg)
   urlData.set('focusColor', focusColor)
@@ -42,9 +43,9 @@ export function setParams({
   return urlData.toString()
 }
 
-export function updateURL(history, state) {
-  url = setParams(state)
-  history.push(`?${url}`)
+export function updateURL(state) {
+  let url = setParams(state)
+  navigate(`/?${url}`)
 }
 
 export function hexToRgb(hex) {

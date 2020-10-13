@@ -54,7 +54,7 @@ export default function LogoWhiteSVG() {
         rx="96"
         fill="white"
         stroke={state.focusColor}
-        stroke-width="20"
+        strokeWidth="20"
       />
       <rect x="375.12" y="26" width="160" height="160" rx="80" fill="#767676" />
       <rect

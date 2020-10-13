@@ -3,10 +3,11 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import Variable from 'components/variable'
 import VariableContext from 'providers/variable-context'
+import { updateURL } from 'utils/functions'
 
 import data from 'data/variable-data'
 
-export default function Variables() {
+export default function Variables(props) {
   var { state, setVariable } = React.useContext(VariableContext)
   // var [fontFamilies, setFontFamilies] = React.useState([])
 
@@ -122,6 +123,28 @@ export default function Variables() {
       setVariable('motion', motion)
       setVariable('duration', duration)
       setVariable('loop', loop)
+
+      updateURL({
+        width,
+        focusColor: focusColor.substring(1),
+        bgColor: bgColor.substring(1),
+        inputBg: inputBg.substring(1),
+        offset,
+        outline,
+        reducedMotion: 'false',
+        motion,
+        duration,
+        loop,
+      })
+    } else {
+      updateURL({
+        width,
+        focusColor: focusColor.substring(1),
+        bgColor: bgColor.substring(1),
+        inputBg: inputBg.substring(1),
+        offset,
+        outline,
+      })
     }
   }
 

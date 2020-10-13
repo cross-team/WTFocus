@@ -5,7 +5,7 @@ import Layout from 'components/layout'
 import Examples from 'components/examples'
 import Variables from 'components/variables'
 import VariableContext from 'providers/variable-context'
-import { getFontColor } from 'utils/functions'
+import { getFontColor, getURLData } from 'utils/functions'
 import LogoWhiteSVG from 'assets/svgs/logo-white-svg'
 import LogoSVG from 'assets/svgs/logo-svg'
 
@@ -14,10 +14,29 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 var example = css``
 
 export default function Index(props) {
-  var { state } = React.useContext(VariableContext)
+  var { state, setVariable } = React.useContext(VariableContext)
   var ref = React.useRef(null)
 
-  // useEffect(() => {}, [])
+  React.useEffect(() => {
+    console.log(props.location.search)
+    let urlData = getURLData(props.location)
+    console.log(urlData)
+
+    setVariable('bgColor', '#' + urlData.bgColor)
+    setVariable('inputBg', '#' + urlData.inputBg)
+    setVariable('focusColor', '#' + urlData.focusColor)
+    setVariable('width', urlData.width)
+    setVariable('offset', urlData.offset)
+    setVariable('outline', urlData.outline)
+    if (urlData.reducedMotion === 'false') {
+      setVariable('reducedMotion', false)
+      setVariable('motion', urlData.motion)
+      setVariable('duration', urlData.duration)
+      setVariable('loop', urlData.loop)
+    } else {
+      setVariable('reducedMotion', true)
+    }
+  }, [])
 
   var Column1Container = styled.div`
     width: 50vw;
