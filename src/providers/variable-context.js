@@ -11,7 +11,7 @@ var initialState = {
   width: 2,
   offset: 4,
   outline: 'solid',
-  reducedMotion: 'true',
+  reducedMotion: true,
   motion: 'none',
   duration: '1s',
   loop: 'infinite',
