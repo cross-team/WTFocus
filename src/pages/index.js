@@ -13,9 +13,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 var example = css``
 
-export default function Index() {
+export default function Index(props) {
   var { state } = React.useContext(VariableContext)
   var ref = React.useRef(null)
+
+  useEffect(() => {}, [])
 
   var Column1Container = styled.div`
     width: 50vw;

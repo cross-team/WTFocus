@@ -16,7 +16,36 @@ export function getURLData(location) {
   }
 }
 
-export function updateURL(history) {}
+export function setParams({
+  bgColor = '#f2f2f2',
+  inputBg = '#f2f2f2',
+  focusColor = '#0e63c8',
+  width = '2',
+  offset = '4',
+  outline = 'solid',
+  reducedMotion = 'true',
+  motion = 'none',
+  duration = '1s',
+  loop = 'infinite',
+}) {
+  let urlData = URLSearchParams()
+  urlData.set('bgColor', bgColor)
+  urlData.set('inputBg', inputBg)
+  urlData.set('focusColor', focusColor)
+  urlData.set('width', width)
+  urlData.set('offset', offset)
+  urlData.set('outline', outline)
+  urlData.set('reducedMotion', reducedMotion)
+  urlData.set('motion', motion)
+  urlData.set('duration', duration)
+  urlData.set('loop', loop)
+  return urlData.toString()
+}
+
+export function updateURL(history, state) {
+  url = setParams(state)
+  history.push(`?${url}`)
+}
 
 export function hexToRgb(hex) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
