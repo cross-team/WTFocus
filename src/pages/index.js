@@ -17,7 +17,7 @@ export default function Index(props) {
   var { state } = React.useContext(VariableContext)
   var ref = React.useRef(null)
 
-  useEffect(() => {}, [])
+  // useEffect(() => {}, [])
 
   var Column1Container = styled.div`
     width: 50vw;
