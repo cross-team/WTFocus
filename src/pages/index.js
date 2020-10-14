@@ -80,6 +80,7 @@ export default function Index(props) {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    margin-top: 266px;
 
     input,
     select,

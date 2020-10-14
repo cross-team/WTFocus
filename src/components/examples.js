@@ -106,14 +106,13 @@ export default function Examples() {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 0 2rem;
     font-size: ${state.fontSize}rem;
   `
 
   var Heading = styled.h2`
     font-size: 3rem;
-    margin-top: calc(50vw * (212 / 889) + 4rem);
     white-space: nowrap;
   `
 
