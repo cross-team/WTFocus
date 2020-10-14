@@ -258,7 +258,7 @@ export default function Variables(props) {
         />
         <label for="reducedMotion">Prefers reduced motion</label>
       </CheckboxContainer>
-      {!state.reducedMotion && smallScreen && (
+      {!state.reducedMotion && (
         <MotionContainer>
           <MotionText>
             Learn about Reduced Motion in this article by{' '}
@@ -269,39 +269,41 @@ export default function Variables(props) {
               An Introduction to the Reduced Motion Media Query
             </a>
           </MotionText>
-          <MotionVariables>
-            <Variable
-              label="Motion"
-              name="motion"
-              key="motion"
-              options={[
-                { label: 'None', value: 'none' },
-                { label: 'Pulsing', value: 'pulse' },
-                { label: 'Bouncing', value: 'bounce' },
-                { label: 'Fading', value: 'fade' },
-              ]}
-            />
-            <Variable
-              label="Speed"
-              name="duration"
-              key="duration"
-              options={[
-                { label: 'Slow', value: '2s' },
-                { label: 'Medium', value: '1s' },
-                { label: 'Fast', value: '650ms' },
-              ]}
-            />
-            <Variable
-              label="Loop"
-              name="loop"
-              key="loop"
-              options={[
-                { label: 'One', value: '1' },
-                { label: 'Two', value: '2' },
-                { label: 'Indefinitely', value: 'infinite' },
-              ]}
-            />
-          </MotionVariables>
+          {smallScreen && (
+            <MotionVariables>
+              <Variable
+                label="Motion"
+                name="motion"
+                key="motion"
+                options={[
+                  { label: 'None', value: 'none' },
+                  { label: 'Pulsing', value: 'pulse' },
+                  { label: 'Bouncing', value: 'bounce' },
+                  { label: 'Fading', value: 'fade' },
+                ]}
+              />
+              <Variable
+                label="Speed"
+                name="duration"
+                key="duration"
+                options={[
+                  { label: 'Slow', value: '2s' },
+                  { label: 'Medium', value: '1s' },
+                  { label: 'Fast', value: '650ms' },
+                ]}
+              />
+              <Variable
+                label="Loop"
+                name="loop"
+                key="loop"
+                options={[
+                  { label: 'One', value: '1' },
+                  { label: 'Two', value: '2' },
+                  { label: 'Indefinitely', value: 'infinite' },
+                ]}
+              />
+            </MotionVariables>
+          )}
         </MotionContainer>
       )}
       <Button onClick={handleApply}>Apply</Button>
