@@ -4,11 +4,13 @@ import { css } from '@emotion/core'
 import Variable from 'components/variable'
 import VariableContext from 'providers/variable-context'
 import { updateURL } from 'utils/functions'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 import data from 'data/variable-data'
 
 export default function Variables(props) {
   var { state, setVariable } = React.useContext(VariableContext)
+  var smallScreen = useMediaQuery('(max-width: 1000px)')
   // var [fontFamilies, setFontFamilies] = React.useState([])
 
   // React.useEffect(() => {
@@ -47,6 +49,7 @@ export default function Variables(props) {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0.5rem;
   `
 
   var Heading = styled.h2`
@@ -83,7 +86,7 @@ export default function Variables(props) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 4rem;
+    margin-left: 1rem;
   `
 
   var MotionVariables = styled.div`
@@ -159,11 +162,7 @@ export default function Variables(props) {
     <Root role="region" aria-labelledby="variablesHeading">
       <Heading id="variablesHeading">Focus Styles</Heading>
       <VariablesContainer>
-        <VariablesColumn
-          css={css`
-            margin-right: 1rem;
-          `}
-        >
+        <VariablesColumn>
           <Variable
             label="Color"
             name="focusColor"
@@ -186,11 +185,7 @@ export default function Variables(props) {
             key="inputBg"
           />
         </VariablesColumn>
-        <VariablesColumn
-          css={css`
-            margin-left: 1rem;
-          `}
-        >
+        <VariablesColumn>
           <Variable
             label="Width"
             name="width"
@@ -216,6 +211,41 @@ export default function Variables(props) {
             ]}
           />
         </VariablesColumn>
+        {!state.reducedMotion && !smallScreen && (
+          <VariablesColumn>
+            <Variable
+              label="Motion"
+              name="motion"
+              key="motion"
+              options={[
+                { label: 'None', value: 'none' },
+                { label: 'Pulsing', value: 'pulse' },
+                { label: 'Bouncing', value: 'bounce' },
+                { label: 'Fading', value: 'fade' },
+              ]}
+            />
+            <Variable
+              label="Speed"
+              name="duration"
+              key="duration"
+              options={[
+                { label: 'Slow', value: '2s' },
+                { label: 'Medium', value: '1s' },
+                { label: 'Fast', value: '650ms' },
+              ]}
+            />
+            <Variable
+              label="Loop"
+              name="loop"
+              key="loop"
+              options={[
+                { label: 'One', value: '1' },
+                { label: 'Two', value: '2' },
+                { label: 'Indefinitely', value: 'infinite' },
+              ]}
+            />
+          </VariablesColumn>
+        )}
       </VariablesContainer>
       <CheckboxContainer>
         <Checkbox
@@ -228,7 +258,7 @@ export default function Variables(props) {
         />
         <label for="reducedMotion">Prefers reduced motion</label>
       </CheckboxContainer>
-      {state.reducedMotion ? null : (
+      {!state.reducedMotion && smallScreen && (
         <MotionContainer>
           <MotionText>
             Learn about Reduced Motion in this article by{' '}
