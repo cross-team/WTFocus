@@ -1,5 +1,5 @@
 import React from 'react'
-// import '@a11y/focus-trap'
+import FocusTrap from 'focus-trap-react'
 import styled from '@emotion/styled'
 import { Global, css } from '@emotion/core'
 import Indicators from 'components/indicators'
@@ -9,15 +9,7 @@ import { hexToRgb } from 'utils/functions'
 
 export default function Examples() {
   var { state, setVariable } = React.useContext(VariableContext)
-  var [trapInactive, setTrapInactive] = React.useState(false)
-  var symbol
-  var symbolWeight
-
-  function handleClick() {
-    let focusTrap = document.querySelector('focus-trap')
-    focusTrap.inactive = !trapInactive
-    setTrapInactive(!trapInactive)
-  }
+  var [trapActive, setTrapActive] = React.useState(false)
 
   var animations = css`
     a:focus,
@@ -106,14 +98,17 @@ export default function Examples() {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 0 2rem;
     font-size: ${state.fontSize}rem;
+
+    .trap {
+      width: 100%;
+    }
   `
 
   var Heading = styled.h2`
     font-size: 3rem;
-    margin-top: calc(50vw * (212 / 889) + 4rem);
     white-space: nowrap;
   `
 
@@ -186,46 +181,61 @@ export default function Examples() {
     <Root role="region" css={outlineStyles} aria-labelledby="previewHeading">
       <Heading id="previewHeading">Focus Preview</Heading>
       <Indicators />
-      <InputContainer>
-        <label for="input-ex">Input</label>
-        <Input
-          name="input-ex"
-          id="input-ex"
-          aria-label="input element example"
-        />
-      </InputContainer>
-      <InputContainer>
-        <label for="select-ex">Select</label>
-        <DropDown
-          name="select-ex"
-          id="select-ex"
-          aria-label="select element example"
-        />
-      </InputContainer>
-      <CheckboxContainer>
-        <Checkbox
-          type="checkbox"
-          name="checkbox-ex"
-          id="checkbox-ex"
-          aria-label="checkbox element example"
-        />
-        <label for="checkbox-ex">Checkbox</label>
-      </CheckboxContainer>
-      <CheckboxContainer>
-        <Checkbox
-          type="radio"
-          name="radio-ex"
-          id="radio-ex"
-          aria-label="radio element example"
-        />
-        <label for="radio-ex">Radio</label>
-      </CheckboxContainer>
-      <LinkContainer>
-        <Link href="#" aria-label="link example">
-          Link
-        </Link>
-        <Button aria-label="button example">Button</Button>
-      </LinkContainer>
+      <FocusTrap
+        active={trapActive}
+        focusTrapOptions={{
+          clickOutsideDeactivates: false,
+          allowOutsideClick: true,
+        }}
+      >
+        <div className="trap">
+          <InputContainer>
+            <label for="input-ex">Input</label>
+            <Input
+              name="input-ex"
+              id="input-ex"
+              aria-label="input element example"
+            />
+          </InputContainer>
+          <InputContainer>
+            <label for="select-ex">Select</label>
+            <DropDown
+              name="select-ex"
+              id="select-ex"
+              aria-label="select element example"
+            />
+          </InputContainer>
+          <CheckboxContainer>
+            <Checkbox
+              type="checkbox"
+              name="checkbox-ex"
+              id="checkbox-ex"
+              aria-label="checkbox element example"
+            />
+            <label for="checkbox-ex">Checkbox</label>
+          </CheckboxContainer>
+          <CheckboxContainer>
+            <Checkbox
+              type="radio"
+              name="radio-ex"
+              id="radio-ex"
+              aria-label="radio element example"
+            />
+            <label for="radio-ex">Radio</label>
+          </CheckboxContainer>
+          <LinkContainer>
+            <Link href="#" aria-label="link example">
+              Link
+            </Link>
+            <>
+              <Button aria-label="button example">Button</Button>
+              <Button onClick={() => setTrapActive(!trapActive)}>
+                {trapActive ? 'Disable' : 'Enable'} Focus Trap
+              </Button>
+            </>
+          </LinkContainer>
+        </div>
+      </FocusTrap>
     </Root>
   )
 }
