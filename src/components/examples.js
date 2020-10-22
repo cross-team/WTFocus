@@ -11,6 +11,10 @@ export default function Examples() {
   var { state, setVariable } = React.useContext(VariableContext)
   var [trapActive, setTrapActive] = React.useState(false)
 
+  function handleFocusTrap() {
+    setTrapActive(!trapActive)
+  }
+
   var animations = css`
     a:focus,
     button:focus,
@@ -101,10 +105,10 @@ export default function Examples() {
     justify-content: flex-start;
     padding: 0 2rem;
     font-size: ${state.fontSize}rem;
+  `
 
-    .trap {
-      width: 100%;
-    }
+  var TrapContainer = styled.div`
+    width: 100%;
   `
 
   var Heading = styled.h2`
@@ -188,7 +192,7 @@ export default function Examples() {
           allowOutsideClick: true,
         }}
       >
-        <div className="trap">
+        <TrapContainer>
           <InputContainer>
             <label for="input-ex">Input</label>
             <Input
@@ -227,14 +231,23 @@ export default function Examples() {
             <Link href="#" aria-label="link example">
               Link
             </Link>
-            <>
-              <Button aria-label="button example">Button</Button>
-              <Button onClick={() => setTrapActive(!trapActive)}>
-                {trapActive ? 'Disable' : 'Enable'} Focus Trap
-              </Button>
-            </>
+            <Button aria-label="button example">Button</Button>
           </LinkContainer>
-        </div>
+          <CheckboxContainer>
+            <Checkbox
+              type="checkbox"
+              name="enableFocusTrap"
+              id="enableFocusTrap"
+              aria-label="Focus Trap Checkbox"
+              value="enableFocusTrap"
+              checked={trapActive}
+              onChange={handleFocusTrap}
+            />
+            <label for="enableFocusTrap">
+              {trapActive ? 'Disable' : 'Enable'} Focus Trap
+            </label>
+          </CheckboxContainer>
+        </TrapContainer>
       </FocusTrap>
     </Root>
   )

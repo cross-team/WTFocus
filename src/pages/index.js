@@ -82,6 +82,10 @@ export default function Index(props) {
     align-items: center;
     margin-top: 266px;
 
+    @media only screen and (max-width: 1000px) {
+      margin-top: 6rem;
+    }
+
     input,
     select,
     button {
