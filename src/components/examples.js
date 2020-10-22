@@ -120,7 +120,6 @@ export default function Examples() {
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin: 0.5rem;
   `
 
   var Input = styled.input`
@@ -128,7 +127,8 @@ export default function Examples() {
     width: 100%;
     border: 2px solid #767676;
     border-radius: 4px;
-    margin-top: ${+state.width + +state.offset + 4}px;
+    margin-bottom: ${+state.width + +state.offset}px;
+    margin-top: ${+state.width + +state.offset}px;
     font-size: ${state.fontSize}rem;
     padding: 0.5rem;
     background-color: ${state.inputBg};
@@ -139,22 +139,26 @@ export default function Examples() {
     width: 100%;
     border: 2px solid #767676;
     border-radius: 4px;
-    margin-top: ${+state.width + +state.offset + 4}px;
+    margin-bottom: ${+state.width + +state.offset}px;
+    margin-top: ${+state.width + +state.offset}px;
     font-size: ${state.fontSize}rem;
     padding: 0.5rem;
     background-color: ${state.inputBg};
   `
 
   var Checkbox = styled.input`
-    margin-right: 1rem;
+    margin-right: ${+state.width + +state.offset}px;
   `
 
   var CheckboxContainer = styled.div`
-    width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: 0.5rem;
+
+    label {
+      margin-right: 2rem;
+      margin-bottom: 0;
+    }
   `
 
   var LinkContainer = styled.div`
@@ -162,7 +166,8 @@ export default function Examples() {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: ${+state.width + +state.offset}px;
+    margin-top: ${+state.width + +state.offset}px;
   `
 
   var Link = styled.a`
@@ -172,7 +177,7 @@ export default function Examples() {
 
   var Button = styled.button`
     align-self: flex-end;
-    background-color: #207df8;
+    background-color: #333b3f;
     color: white;
     font-size: ${state.fontSize}rem;
     padding: 0.5rem;
@@ -201,7 +206,11 @@ export default function Examples() {
               aria-label="input element example"
             />
           </InputContainer>
-          <InputContainer>
+          <InputContainer
+            css={css`
+              margin-top: ${+state.width + +state.offset}px;
+            `}
+          >
             <label for="select-ex">Select</label>
             <DropDown
               name="select-ex"
@@ -209,44 +218,49 @@ export default function Examples() {
               aria-label="select element example"
             />
           </InputContainer>
-          <CheckboxContainer>
-            <Checkbox
-              type="checkbox"
-              name="checkbox-ex"
-              id="checkbox-ex"
-              aria-label="checkbox element example"
-            />
-            <label for="checkbox-ex">Checkbox</label>
-          </CheckboxContainer>
-          <CheckboxContainer>
-            <Checkbox
-              type="radio"
-              name="radio-ex"
-              id="radio-ex"
-              aria-label="radio element example"
-            />
-            <label for="radio-ex">Radio</label>
-          </CheckboxContainer>
           <LinkContainer>
+            <CheckboxContainer>
+              <Checkbox
+                type="checkbox"
+                name="checkbox-ex"
+                id="checkbox-ex"
+                aria-label="checkbox element example"
+              />
+              <label for="checkbox-ex">Checkbox</label>
+            </CheckboxContainer>
+            <CheckboxContainer>
+              <Checkbox
+                type="radio"
+                name="radio-ex"
+                id="radio-ex"
+                aria-label="radio element example"
+              />
+              <label for="radio-ex">Radio</label>
+            </CheckboxContainer>
+
             <Link href="#" aria-label="link example">
               Link
             </Link>
-            <Button aria-label="button example">Button</Button>
           </LinkContainer>
-          <CheckboxContainer>
-            <Checkbox
-              type="checkbox"
-              name="enableFocusTrap"
-              id="enableFocusTrap"
-              aria-label="Focus Trap Checkbox"
-              value="enableFocusTrap"
-              checked={trapActive}
-              onChange={handleFocusTrap}
-            />
-            <label for="enableFocusTrap">
-              {trapActive ? 'Disable' : 'Enable'} Focus Trap
-            </label>
-          </CheckboxContainer>
+          <LinkContainer>
+            <Button aria-label="button example">Button</Button>
+            <CheckboxContainer
+              css={css`
+                justify-content: flex-end;
+              `}
+            >
+              <Checkbox
+                type="checkbox"
+                name="enableFocusTrap"
+                id="enableFocusTrap"
+                aria-label="Focus Trap Checkbox"
+                value="enableFocusTrap"
+                checked={trapActive}
+                onChange={handleFocusTrap}
+              />
+              <label for="enableFocusTrap">Focus Trap</label>
+            </CheckboxContainer>
+          </LinkContainer>
         </TrapContainer>
       </FocusTrap>
     </Root>

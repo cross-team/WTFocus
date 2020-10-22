@@ -7,10 +7,10 @@
 module.exports = {
   pathPrefix: '/WTFocus',
   siteMetadata: {
-    title: 'Your default page title',
-    titleTemplate: '%s - Your Site Name',
-    description: 'Your site description',
-    url: 'Your site URL',
+    title: 'WTFocus',
+    titleTemplate: '%s - WTFocus',
+    description: 'A focus indicator demo for the ICT Accessibility Symposium',
+    url: 'wtfoc.us',
     image: "Your site's social media card image",
     twitterUsername: '@yourTwitterUser',
   },

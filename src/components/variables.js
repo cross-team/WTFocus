@@ -71,8 +71,8 @@ export default function Variables(props) {
 
   var Button = styled.button`
     align-self: flex-end;
-    background-color: #207df8;
-    color: white;
+    background-color: #f2f2f2;
+    color: black;
     font-size: ${state.fontSize}rem;
     padding: 0.5rem;
     border-radius: 8px;
